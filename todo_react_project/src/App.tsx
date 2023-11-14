@@ -4,7 +4,7 @@ import Sidebar from "./components/Sidebar.tsx";
 function App() {
 
   return (
-		<main className="h-full">
+		<main data-theme="light" className="h-full">
 				<Sidebar></Sidebar>
 		</main>
   )

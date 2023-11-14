@@ -5,14 +5,15 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="0a5068a2-1269-4297-ab9f-fc760118211e" name="Changes" comment="init of tailwind">
-      <change afterPath="$PROJECT_DIR$/todo_react_project/src/components/Sidebar.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/todo_react_project/src/components/SidebarItem.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/sonarlint/issuestore/index.pb" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/sonarlint/issuestore/index.pb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/sonarlint/securityhotspotstore/index.pb" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/sonarlint/securityhotspotstore/index.pb" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/todo_react_project/src/App.css" beforeDir="false" afterPath="$PROJECT_DIR$/todo_react_project/src/App.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/todo_react_project/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/todo_react_project/package-lock.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/todo_react_project/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/todo_react_project/package.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/todo_react_project/src/App.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/todo_react_project/src/App.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/todo_react_project/src/components/Sidebar.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/todo_react_project/src/components/Sidebar.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/todo_react_project/src/components/SidebarItem.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/todo_react_project/src/components/SidebarItem.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/todo_react_project/src/index.css" beforeDir="false" afterPath="$PROJECT_DIR$/todo_react_project/src/index.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/todo_react_project/src/main.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/todo_react_project/src/main.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/todo_react_project/tailwind.config.js" beforeDir="false" afterPath="$PROJECT_DIR$/todo_react_project/tailwind.config.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -22,7 +23,7 @@
   <component name="Git.Settings">
     <option name="RECENT_BRANCH_BY_REPOSITORY">
       <map>
-        <entry key="$PROJECT_DIR$" value="main" />
+        <entry key="$PROJECT_DIR$" value="add_todo_form" />
       </map>
     </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -58,7 +59,7 @@
     "node.js.selected.package.eslint": "(autodetect)",
     "node.js.selected.package.tslint": "(autodetect)",
     "nodejs_package_manager_path": "npm",
-    "ts.external.directory.path": "C:\\Program Files\\JetBrains\\IntelliJ IDEA 2022.3.2\\plugins\\javascript-impl\\jsLanguageServicesImpl\\external",
+    "ts.external.directory.path": "C:\\Users\\odial\\Documents\\Aurelie\\ESEO\\I3\\React\\todo_react_project\\todo_react_project\\node_modules\\typescript\\lib",
     "vue.rearranger.settings.migration": "true"
   }
 }]]></component>
