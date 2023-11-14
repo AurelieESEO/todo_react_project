@@ -152,3 +152,5 @@ k
 ;node_modules/@heroicons/react/20/solid/ChevronLeftIcon.d.ts,1\3\134791391058ca61aef12d7ae64681bc146146f4
 f
 6node_modules/@heroicons/react/24/outline/HomeIcon.d.ts,d\3\d3610eb5c10d231a0faa37d28174e2560e94424c
+R
+"node_modules/daisyui/dist/full.css,d\f\dfff6955f925312e0f2520dc10e19d5c4276862b

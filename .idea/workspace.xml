@@ -4,16 +4,13 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="0a5068a2-1269-4297-ab9f-fc760118211e" name="Changes" comment="init of tailwind">
+    <list default="true" id="0a5068a2-1269-4297-ab9f-fc760118211e" name="Changes" comment="sidebar can retract">
+      <change beforePath="$PROJECT_DIR$/.idea/sonarlint/issuestore/index.pb" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/sonarlint/issuestore/index.pb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/sonarlint/securityhotspotstore/index.pb" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/sonarlint/securityhotspotstore/index.pb" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/todo_react_project/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/todo_react_project/package-lock.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/todo_react_project/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/todo_react_project/package.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/todo_react_project/src/App.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/todo_react_project/src/App.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/todo_react_project/src/components/Sidebar.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/todo_react_project/src/components/Sidebar.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/todo_react_project/src/components/SidebarItem.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/todo_react_project/src/components/SidebarItem.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/todo_react_project/src/index.css" beforeDir="false" afterPath="$PROJECT_DIR$/todo_react_project/src/index.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/todo_react_project/src/main.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/todo_react_project/src/main.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/todo_react_project/tailwind.config.js" beforeDir="false" afterPath="$PROJECT_DIR$/todo_react_project/tailwind.config.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -35,7 +32,7 @@
     <option name="stateVersion" value="1" />
   </component>
   <component name="ProjectColorInfo">{
-  &quot;associatedIndex&quot;: 2
+  &quot;associatedIndex&quot;: 4
 }</component>
   <component name="ProjectId" id="2Y7AhMMCBIW3LsChD9mXZI1wsID" />
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
@@ -54,12 +51,15 @@
     "dart.analysis.tool.window.visible": "false",
     "git-widget-placeholder": "vertical__nav",
     "go.import.settings.migrated": "true",
+    "last_opened_file_path": "C:/Users/Aurélie/Documents/main/ESEO/I3/PFE/pfe_railway_simulator_2023_2024/eseo_railwaysimulateurv2",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
     "node.js.selected.package.tslint": "(autodetect)",
     "nodejs_package_manager_path": "npm",
-    "ts.external.directory.path": "C:\\Users\\odial\\Documents\\Aurelie\\ESEO\\I3\\React\\todo_react_project\\todo_react_project\\node_modules\\typescript\\lib",
+    "settings.editor.selected.configurable": "preferences.pluginManager",
+    "show.migrate.to.gradle.popup": "false",
+    "ts.external.directory.path": "C:\\Program Files\\JetBrains\\IntelliJ IDEA 2022.3.2\\plugins\\javascript-impl\\jsLanguageServicesImpl\\external",
     "vue.rearranger.settings.migration": "true"
   }
 }]]></component>
@@ -85,6 +85,7 @@
       <updated>1699866365279</updated>
       <workItem from="1699866366355" duration="259000" />
       <workItem from="1699866662552" duration="4659000" />
+      <workItem from="1699982914892" duration="1156000" />
     </task>
     <task id="LOCAL-00001" summary="react project creation">
       <option name="closed" value="true" />
@@ -111,10 +112,15 @@
   <component name="VcsManagerConfiguration">
     <MESSAGE value="react project creation" />
     <MESSAGE value="init of tailwind" />
-    <option name="LAST_COMMIT_MESSAGE" value="init of tailwind" />
+    <MESSAGE value="sidebar can retract" />
+    <option name="LAST_COMMIT_MESSAGE" value="sidebar can retract" />
   </component>
   <component name="VgoProject">
     <integration-enabled>false</integration-enabled>
     <settings-migrated>true</settings-migrated>
+  </component>
+  <component name="XSLT-Support.FileAssociations.UIState">
+    <expand />
+    <select />
   </component>
 </project>
