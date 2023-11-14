@@ -142,3 +142,13 @@ w
 G.idea/sonarlint/issuestore/3/b/3b0bcfd95276797ecdf36c5df8fbd1448c4d338b,2\c\2c0ced38de75c29861f38bcf5118b87a6801c61c
 w
 G.idea/sonarlint/issuestore/4/a/4ac890882d905bbb429074c6b2c87c6491bcc4dc,4\0\4043699fa0d30664325f7049de7ae4e911a704a7
+<
+package.json,7\0\7030d0b2f71b999ff89a343de08c414af32fc93a
+]
+-todo_react_project/src/components/Sidebar.tsx,e\f\efb8556cff967c5297ea208a3e745b6b5b0f8b41
+a
+1todo_react_project/src/components/SidebarItem.tsx,5\e\5eaccc4e5990298716480b15e10eed72f2a3a301
+k
+;node_modules/@heroicons/react/20/solid/ChevronLeftIcon.d.ts,1\3\134791391058ca61aef12d7ae64681bc146146f4
+f
+6node_modules/@heroicons/react/24/outline/HomeIcon.d.ts,d\3\d3610eb5c10d231a0faa37d28174e2560e94424c
