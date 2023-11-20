@@ -1,9 +1,12 @@
 import './App.css'
+import Sidebar from "./components/Sidebar.tsx";
 
 function App() {
 
   return (
-      <h1 className="text-3xl text-accent-500 text-center font-display font-bold">AaBbCc Hello world!</h1>
+		<main data-theme="pastel" className="h-full bg-base-100">
+				<Sidebar></Sidebar>
+		</main>
   )
 }
 
