@@ -28,7 +28,7 @@ const Sidebar: React.FC = () => {
 				<div className={`p-4 pb-2 flex ${short ? 'justify-center' : 'justify-between'} items-center`}>
 					{short ?
 						null :
-						<h1 className="font-body uppercase font-semibold text-2xl ">
+						<h1 className="font-body font-title tracking-widest uppercase font-semibold text-2xl ">
 							To-Do App
 						</h1>
 					}

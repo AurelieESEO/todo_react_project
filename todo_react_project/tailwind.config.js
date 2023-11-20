@@ -9,6 +9,7 @@ export default {
       fontFamily: {
         display: ['IBM Plex Sans', 'Inter', 'sans-serif'],
         body: ['Inter', 'sans-serif'],
+        title: ['DM Serif Display', 'Inter', 'sans-serif'],
       },
       colors: {
         primary: {
