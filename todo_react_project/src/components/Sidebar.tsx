@@ -22,13 +22,13 @@ const Sidebar: React.FC = () => {
 
 
 	return (
-		<aside className={`h-screen ${short ? 'w-20' : 'w-60'}`}>
+		<aside className={`h-screen ${short ? 'w-20' : 'w-64'}`}>
 			<nav
 				className={`bg-base-200 h-full flex flex-col border-accent-content shadow-sm`}>
 				<div className={`p-4 pb-2 flex ${short ? 'justify-center' : 'justify-between'} items-center`}>
 					{short ?
 						null :
-						<h1 className="font-body font-title tracking-widest uppercase font-semibold text-2xl ">
+						<h1 className="font-body font-title tracking-widest uppercase font-semibold text-2xl">
 							To-Do App
 						</h1>
 					}

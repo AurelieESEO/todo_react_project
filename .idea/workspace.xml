@@ -4,12 +4,16 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="0a5068a2-1269-4297-ab9f-fc760118211e" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/todo_react_project/src/components/Task.tsx" afterDir="false" />
+    <list default="true" id="3ebcb9fe-a5a3-4aac-92a3-591a98f03125" name="Changes" comment="gitignore">
+      <change afterPath="$PROJECT_DIR$/todo_react_project/src/components/TaskEdit.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/sonarlint/issuestore/index.pb" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/sonarlint/issuestore/index.pb" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/sonarlint/securityhotspotstore/index.pb" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/sonarlint/securityhotspotstore/index.pb" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/todo_react_project/src/App.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/todo_react_project/src/App.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/todo_react_project/src/components/Sidebar.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/todo_react_project/src/components/Sidebar.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/todo_react_project/src/components/Task.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/todo_react_project/src/components/Task.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/todo_react_project/src/components/TaskView.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/todo_react_project/src/components/TaskView.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/todo_react_project/src/index.css" beforeDir="false" afterPath="$PROJECT_DIR$/todo_react_project/src/index.css" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -19,7 +23,7 @@
   <component name="Git.Settings">
     <option name="RECENT_BRANCH_BY_REPOSITORY">
       <map>
-        <entry key="$PROJECT_DIR$" value="main" />
+        <entry key="$PROJECT_DIR$" value="mainPage" />
       </map>
     </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -31,9 +35,9 @@
     <option name="stateVersion" value="1" />
   </component>
   <component name="ProjectColorInfo">{
-  &quot;associatedIndex&quot;: 2
+  &quot;associatedIndex&quot;: 7
 }</component>
-  <component name="ProjectId" id="2Y7AhMMCBIW3LsChD9mXZI1wsID" />
+  <component name="ProjectId" id="2YUR1uRw1Vy1zNtkv4PF3bhJHmR" />
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
@@ -41,21 +45,23 @@
   </component>
   <component name="PropertiesComponent"><![CDATA[{
   "keyToString": {
+    "ASKED_MARK_IGNORED_FILES_AS_EXCLUDED": "true",
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "RunOnceActivity.go.formatter.settings.were.checked": "true",
     "RunOnceActivity.go.migrated.go.modules.settings": "true",
     "SONARLINT_PRECOMMIT_ANALYSIS": "true",
     "WebServerToolWindowFactoryState": "false",
-    "dart.analysis.tool.window.visible": "false",
-    "git-widget-placeholder": "vertical__nav",
+    "git-widget-placeholder": "mainPage__bis",
     "go.import.settings.migrated": "true",
+    "kotlin-language-version-configured": "true",
     "node.js.detected.package.eslint": "true",
-    "node.js.detected.package.tslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
     "node.js.selected.package.tslint": "(autodetect)",
     "nodejs_package_manager_path": "npm",
-    "ts.external.directory.path": "/Users/mariebordet/Documents/ESEO/I3/React/todo_react_project/node_modules/typescript/lib",
+    "npm.dev.executor": "Run",
+    "settings.editor.selected.configurable": "Ignore Files Support",
+    "ts.external.directory.path": "C:\\Users\\odial\\Documents\\Aurelie\\ESEO\\I3\\React\\todo_react_project\\todo_react_project\\node_modules\\typescript\\lib",
     "vue.rearranger.settings.migration": "true"
   }
 }]]></component>
@@ -73,42 +79,34 @@
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
-    <task active="true" id="Default" summary="Default task">
-      <changelist id="0a5068a2-1269-4297-ab9f-fc760118211e" name="Changes" comment="" />
-      <created>1699866365279</created>
-      <option name="number" value="Default" />
-      <option name="presentableId" value="Default" />
-      <updated>1699866365279</updated>
-      <workItem from="1699866366355" duration="259000" />
-      <workItem from="1699866662552" duration="4659000" />
-      <workItem from="1700469931604" duration="1179000" />
-    </task>
-    <task id="LOCAL-00001" summary="react project creation">
+    <task id="LOCAL-00001" summary="gitignore">
       <option name="closed" value="true" />
-      <created>1699866581973</created>
+      <created>1700473274162</created>
       <option name="number" value="00001" />
       <option name="presentableId" value="LOCAL-00001" />
       <option name="project" value="LOCAL" />
-      <updated>1699866581973</updated>
+      <updated>1700473274162</updated>
     </task>
-    <task id="LOCAL-00002" summary="init of tailwind">
-      <option name="closed" value="true" />
-      <created>1699868849904</created>
-      <option name="number" value="00002" />
-      <option name="presentableId" value="LOCAL-00002" />
-      <option name="project" value="LOCAL" />
-      <updated>1699868849904</updated>
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="3ebcb9fe-a5a3-4aac-92a3-591a98f03125" name="Changes" comment="gitignore" />
+      <created>1700577995079</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1700577995079</updated>
+      <workItem from="1700578007460" duration="619000" />
+      <workItem from="1700725786566" duration="41000" />
+      <workItem from="1702883191466" duration="9672000" />
     </task>
-    <option name="localTasksCounter" value="3" />
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="react project creation" />
-    <MESSAGE value="init of tailwind" />
-    <option name="LAST_COMMIT_MESSAGE" value="init of tailwind" />
+    <MESSAGE value="fonts of title and theme chose" />
+    <MESSAGE value="gitignore" />
+    <option name="LAST_COMMIT_MESSAGE" value="gitignore" />
   </component>
   <component name="VgoProject">
     <integration-enabled>false</integration-enabled>
