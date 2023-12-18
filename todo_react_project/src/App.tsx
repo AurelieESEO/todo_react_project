@@ -5,7 +5,7 @@ import TaskView from "./components/TaskView.tsx";
 function App() {
 
   return (
-      <main data-theme="pastel" className="h-screen w-screen bg-base-100 flex flex-row">
+      <main data-theme="cupcake" className="h-screen w-screen bg-base-100 flex flex-row">
         <div>
           <Sidebar></Sidebar>
         </div>

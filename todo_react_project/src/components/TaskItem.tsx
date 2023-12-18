@@ -1,16 +1,20 @@
 import React from "react";
 import Task from "../model/Task.tsx";
 const TaskItem: React.FC<Task & { onClick: () => void }> = (props) => {
-  const { title, deadline, priority, onClick } = props;
+  const { title, deadline, priority, onClick, isSelected } = props;
 
   return (
-      <div className="flex flex-column card w-full shadow-lg gap-1 mb-4">
+      <div className="flex flex-column card w-full gap-1 mb-4">
         <div
-            className="bg-base-200 card-body rounded-box border-2 hover:bg-base-300/50 cursor-pointer"
+            className={`bg-primary/40 card-body rounded-box ${isSelected ? 'bg-primary/100' : ''}
+              hover:${isSelected ? 'bg-primary/100' : 'bg-primary/50'} cursor-pointer
+              active:bg-primary/100`}
             onClick={onClick}
         >
           <div className="flex flex-row flex-start items-center">
-            <button className={`btn btn-xs btn-circle btn-outline mr-2`}></button>
+            {/*<input type="checkbox" checked="0" className="checkbox checkbox-neutral checkbox-sm mr-2"/>*/}
+            <button
+                className={`btn btn-xs btn-circle btn-outline mr-2`}></button>
             <h2 className="card-title">{title}</h2>
           </div>
           <div className={"flex flex-column"}>

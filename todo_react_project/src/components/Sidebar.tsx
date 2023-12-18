@@ -33,7 +33,7 @@ const Sidebar: React.FC = () => {
 						</h1>
 					}
 					<button onClick={toggleShort}
-					        className={`btn btn-primary btn-sm btn-circle flex justify-center items-left ${short ? 'pl-0.5' : 'pr-0.5'}`}>
+					        className={`btn btn-accent btn-sm btn-circle flex justify-center items-left ${short ? 'pl-0.5' : 'pr-0.5'}`}>
 						{short ? <ChevronRightIcon className="h-4 w-4"/> :
 							<ChevronLeftIcon className="h-4 w-4"/>}
 					</button>
