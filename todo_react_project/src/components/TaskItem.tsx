@@ -6,7 +6,7 @@ const TaskItem: React.FC<Task & { onClick: () => void }> = (props) => {
   return (
       <div className="flex flex-column card w-full gap-1 mb-4">
         <div
-            className={`bg-primary/40 card-body rounded-box ${isSelected ? 'bg-primary/100' : ''}
+            className={`card-body rounded-box ${isSelected ? 'bg-primary/100' : 'bg-primary/40'}
               hover:${isSelected ? 'bg-primary/100' : 'bg-primary/50'} cursor-pointer
               active:bg-primary/100`}
             onClick={onClick}
