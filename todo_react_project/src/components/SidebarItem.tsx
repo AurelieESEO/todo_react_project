@@ -22,7 +22,7 @@ const SidebarItem: React.FC<Props> = (props) => {
 		);
 	} else {
 		content = (
-			<a className={`rounded-box ${active ? 'active' :''}`}>
+			<a className={`whitespace-nowrap rounded-box ${active ? 'active' :''}`}>
 				<Icon className="h-5 w-5" />
 				{text}
 			</a>

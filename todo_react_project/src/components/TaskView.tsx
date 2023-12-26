@@ -81,7 +81,7 @@ const TaskView: React.FC = () => {
             ))}
           </div>
           <div className="mt-4 pl-4 pr-8 flex justify-center items-center w-full">
-            <button className="w-full btn btn-accent"
+            <button className="w-full btn btn-neutral"
                     onClick={addValue}>
               <svg xmlns="http://www.w3.org/2000/svg" fill="none"
                    viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"

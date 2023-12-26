@@ -22,18 +22,18 @@ const Sidebar: React.FC = () => {
 
 
 	return (
-		<aside className={`h-screen ${short ? 'w-20' : 'w-64'}`}>
+		<aside className={`transition-all duration-200 h-screen ${short ? 'w-20' : 'w-64'}`}>
 			<nav
 				className={`bg-base-300/20 h-full flex flex-col border-accent-content shadow-sm`}>
 				<div className={`p-4 pb-2 flex ${short ? 'justify-center' : 'justify-between'} items-center`}>
 					{short ?
 						null :
-						<h1 className="font-body font-title tracking-widest uppercase font-semibold text-2xl">
+						<h1 className="font-title tracking-widest uppercase text-2xl whitespace-nowrap">
 							To-Do App
 						</h1>
 					}
 					<button onClick={toggleShort}
-					        className={`btn btn-accent btn-sm btn-circle flex justify-center items-left ${short ? 'pl-0.5' : 'pr-0.5'}`}>
+					        className={`btn btn-secondary btn-sm btn-circle flex justify-center items-left ${short ? 'pl-0.5' : 'pr-0.5'}`}>
 						{short ? <ChevronRightIcon className="h-4 w-4"/> :
 							<ChevronLeftIcon className="h-4 w-4"/>}
 					</button>
