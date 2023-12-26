@@ -5,9 +5,37 @@ import Task from "../model/Task.tsx";
 
 const TaskView: React.FC = () => {
   const initialTasks: Task[] = [
-    { id: 1, title: "Faire la vaisselle", deadline: "2021-10-10", priority: "Urgent", isSelected: true },
-    { id: 2, title: "Faire le ménage", deadline: "2021-10-10", priority: "Moyen", isSelected: false },
-    { id: 3, title: "Faire les courses", deadline: "2021-10-10", priority: "Faible", isSelected: false },
+    {
+      id: 1,
+      title: "Task 1",
+      deadline: "2021-10-01",
+      priority: "Urgent",
+      isSelected: true,
+      tags: ["tag1", "tag2"],
+      tagsPossibles: ["tag1", "tag2", "tag3", "tag4"],
+      description: "description 1",
+    },
+    {
+      id: 2,
+      title: "Task 2",
+      deadline: "2021-10-02",
+      priority: "Moyen",
+      isSelected: false,
+      tags: ["tag1", "tag2"],
+      tagsPossibles: ["tag1", "tag2", "tag3", "tag4"],
+      description: "description 2",
+    },
+    {
+      id: 3,
+      title: "Task 3",
+      deadline: "2021-10-03",
+      priority: "Faible",
+      isSelected: false,
+      tags: ["tag1", "tag2"],
+      tagsPossibles: ["tag1", "tag2", "tag3", "tag4"],
+      description: "description 3",
+    },
+
   ];
 
   const [tasks, setTasks] = React.useState<Task[]>(initialTasks);
@@ -16,7 +44,7 @@ const TaskView: React.FC = () => {
   const addValue = () => {
     const currentDate = new Date().toISOString().slice(0, 10);
     taskBeingEdited ? taskBeingEdited.isSelected = false : null;
-    const newTask: Task = { id: tasks.length + 1, title: "Task", priority: "Moyen", deadline: currentDate, isSelected: true };
+    const newTask: Task = { id: tasks.length + 1, title: "Task", priority: "Moyen", deadline: currentDate, isSelected: true, description: "", tags: [], tagsPossibles: [] };
     setTasks([newTask, ...tasks]);
     setTaskBeingEdited(newTask)
   };
@@ -64,6 +92,19 @@ const TaskView: React.FC = () => {
     );
   };
 
+  const onDescriptionChange = (taskId: number, newDescription: string) => {
+    setTasks((prevTasks) =>
+        prevTasks.map((task) => {
+          if (task.id === taskId) {
+            task.description = newDescription;
+            setTaskBeingEdited(task)
+          }
+          return task;
+        }),
+    );
+  };
+
+
   return (
       <div className="px-4 py-8 flex flex-row gap-4 justify-start w-full h-full">
         <div className="w-3/6 flex flex-col justify-between">
@@ -92,8 +133,13 @@ const TaskView: React.FC = () => {
             </button>
           </div>
         </div>
-        <TaskEdit task={taskBeingEdited} onTitleChange={handleTitleChange}
-                  onDeadlineChange={onDeadlineChange} onPriorityChange={onPriorityChange}></TaskEdit>
+        <TaskEdit task={taskBeingEdited}
+                  onTitleChange={handleTitleChange}
+                  onDeadlineChange={onDeadlineChange}
+                  onPriorityChange={onPriorityChange}
+                  onDescriptionChange={onDescriptionChange}
+                  description={taskBeingEdited ? taskBeingEdited.description : ""}>
+        </TaskEdit>
       </div>
   );
 };

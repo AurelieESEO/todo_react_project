@@ -6,9 +6,10 @@ type TaskEditProps = {
   onTitleChange: (taskId: number, newTitle: string) => void;
   onDeadlineChange: (taskId: number, newDeadline: string) => void;
   onPriorityChange: (taskId: number, newDeadline: string) => void;
+  description: string;
 };
 
-const TaskEdit: React.FC<TaskEditProps> = ({ task, onTitleChange, onDeadlineChange, onPriorityChange   }) => {
+const TaskEdit: React.FC<TaskEditProps> = ({ task, onTitleChange, onDeadlineChange, onPriorityChange, onDescriptionChange}) => {
   const [editedTask, setEditedTask] = React.useState<Task>(task!);
   const prioritiesAvailable = ['Urgent', 'Moyen', 'Faible'];
 
@@ -52,6 +53,19 @@ const TaskEdit: React.FC<TaskEditProps> = ({ task, onTitleChange, onDeadlineChan
     }
   };
 
+  const handleDescriptionChange = (event: React.ChangeEvent<HTMLTextAreaElement>) => {
+    const { value } = event.target;
+    setEditedTask((prevTask) => ({
+      ...prevTask,
+      description: value,
+    }));
+
+    if (task) {
+      onDescriptionChange(task.id, value);
+    }
+  };
+
+
   return (
       <div className="h-full w-full card gap-1 border-primary border-2">
         <div className="card-body">
@@ -88,6 +102,8 @@ const TaskEdit: React.FC<TaskEditProps> = ({ task, onTitleChange, onDeadlineChan
           <textarea
               className="textarea textarea-bordered w-full h-32"
               placeholder="Description"
+              value={editedTask ? editedTask.description : ''}
+              onChange={handleDescriptionChange}
           />
         </div>
       </div>
