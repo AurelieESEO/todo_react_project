@@ -1,40 +1,45 @@
 import React from "react";
 import Task from "../model/Task.tsx";
 
+// Define the props for TaskItem component
 type TaskItemProps = {
   task: Task;
   onClick: () => void;
   onIsDoneChange: (taskId: number) => void;
 };
 
-const TaskItem: React.FC<TaskItemProps> = ({ task, onClick, onIsDoneChange}) => {
+// TaskItem component
+const TaskItem: React.FC<TaskItemProps> = ({ task, onClick, onIsDoneChange }) => {
+
+  // Determine the background color based on the task's state
   const handleBackgroundColor = () => {
     if (task.isDone && task.isSelected) {
-      return 'bg-secondary/50'
+      return 'bg-secondary/50';
     } else if (task.isDone) {
-      return 'bg-secondary/20'
+      return 'bg-secondary/20';
     } else if (task.isSelected) {
-      return 'bg-primary'
+      return 'bg-primary';
     } else {
-      return 'bg-primary/40'
+      return 'bg-primary/40';
     }
   }
 
+  // Handle the click event when the "Done" button is pressed
   const handleIsDonePressed = () => {
     onIsDoneChange(task.id);
   }
 
+  // TSX for a TaskItem component
   return (
       <div className="flex flex-column card w-full gap-1 mb-4">
         <div
             className={`transition-all duration-150 card-body rounded-box 
-              ${handleBackgroundColor()}
-              hover:cursor-pointer
-              active:${task.isDone ? 'bg-secondary' : 'bg-primary/100'}`}
+          ${handleBackgroundColor()}
+          hover:cursor-pointer
+          active:${task.isDone ? 'bg-secondary' : 'bg-primary/100'}`}
             onClick={onClick}
         >
           <div className="flex flex-row flex-start items-center">
-            {/*<input type="checkbox" checked="0" className="checkbox checkbox-neutral checkbox-sm mr-2"/>*/}
             <button className={`btn btn-xs btn-circle mr-2 ${task.isDone ? 'btn-secondary' : 'btn-outline'}`}
                     onClick={handleIsDonePressed}>
             </button>
@@ -43,6 +48,7 @@ const TaskItem: React.FC<TaskItemProps> = ({ task, onClick, onIsDoneChange}) => 
           <div className={"flex flex-column"}>
             <div className={"w-full flex justify-between"}>
               <div className={"flex gap-1"}>
+                {/* Deadline icon and text */}
                 <svg
                     xmlns="http://www.w3.org/2000/svg"
                     fill="none"
@@ -60,6 +66,7 @@ const TaskItem: React.FC<TaskItemProps> = ({ task, onClick, onIsDoneChange}) => 
                 <p>{task.deadline}</p>
               </div>
               <div className={"flex gap-1"}>
+                {/* Priority icon and text */}
                 <svg
                     xmlns="http://www.w3.org/2000/svg"
                     fill="none"

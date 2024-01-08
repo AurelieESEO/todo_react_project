@@ -5,15 +5,13 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="3ebcb9fe-a5a3-4aac-92a3-591a98f03125" name="Changes" comment="side bar items activated&#10;can now click on them and change the view&#10;refacto of lot of functionnalities to be shared for all the tabs">
-      <change afterPath="$PROJECT_DIR$/todo_react_project/src/components/ClandarView.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/todo_react_project/src/components/LabelsBoardView.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/todo_react_project/src/components/TaskListView.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/sonarlint/issuestore/index.pb" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/sonarlint/issuestore/index.pb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/sonarlint/securityhotspotstore/index.pb" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/sonarlint/securityhotspotstore/index.pb" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/todo_react_project/src/App.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/todo_react_project/src/App.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/todo_react_project/src/components/Sidebar.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/todo_react_project/src/components/Sidebar.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/todo_react_project/src/components/SidebarItem.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/todo_react_project/src/components/SidebarItem.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/todo_react_project/src/components/TaskEdit.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/todo_react_project/src/components/TaskEdit.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/todo_react_project/src/components/TaskItem.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/todo_react_project/src/components/TaskItem.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/todo_react_project/src/components/TaskListView.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/todo_react_project/src/components/TaskListView.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/todo_react_project/src/components/TaskView.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/todo_react_project/src/components/TaskView.tsx" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -98,7 +96,7 @@
       <workItem from="1700725786566" duration="41000" />
       <workItem from="1702883191466" duration="12875000" />
       <workItem from="1704398076072" duration="62000" />
-      <workItem from="1704697600848" duration="10238000" />
+      <workItem from="1704697600848" duration="12326000" />
     </task>
     <task id="LOCAL-00002" summary="Redesigned main page UI">
       <option name="closed" value="true" />
@@ -116,7 +114,15 @@
       <option name="project" value="LOCAL" />
       <updated>1704698056921</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="side bar items activated&#10;can now click on them and change the view&#10;refacto of lot of functionnalities to be shared for all the tabs">
+      <option name="closed" value="true" />
+      <created>1704709721014</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1704709721014</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">

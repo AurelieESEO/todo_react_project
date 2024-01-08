@@ -10,42 +10,43 @@ type TaskViewProps = {
   view: string;
 };
 
-const TaskView: React.FC<TaskViewProps> = ({view}) => {
+const TaskView: React.FC<TaskViewProps> = ({ view }) => {
+  // Definition of possible tags
   const tagsPossibles: Tag[] = [
-    {text: "tag1", color: "#FF0000"},
-    {text: "tag2", color: "#00FF00"},
-    {text: "tag3", color: "#0000FF"},
-    {text: "tag4", color: "#FFFF00"},
-    {text: "tag5", color: "#00FFFF"},
-    {text: "tag6", color: "#FF00FF"},
-    {text: "tag7", color: "#FFFFFF"},
-    {text: "tag8", color: "#000000"},
+    { text: "tag1", color: "#FF0000" },
+    { text: "tag2", color: "#00FF00" },
+    { text: "tag3", color: "#0000FF"},
+    { text: "tag4", color: "#FFFF00" },
+    { text: "tag5", color: "#00FFFF" },
+    { text: "tag6", color: "#FF00FF" },
   ];
 
+  // Initial tasks
   const initialTasks: Task[] = [
     {
       id: 1,
-      title: "Faire le repas de Noël",
+      title: "Prepare Christmas Dinner",
       deadline: "2023-12-25",
       priority: "Urgent",
       isSelected: true,
       isDone: false,
-      tags: ["Cuisine", "Famille"],
-      description: "Entrées : huitres, saumon fumé, foie gras\nPlat : dinde aux marrons\nDessert : bûche de Noël",
+      tags: ["Cooking", "Family"],
+      description: "Starters: oysters, smoked salmon, foie gras\nMain course: turkey with chestnuts\nDessert: Yule log",
     },
   ];
 
+  // State for tasks and the task currently being edited
   const [tasks, setTasks] = React.useState<Task[]>(initialTasks);
   const [taskBeingEdited, setTaskBeingEdited] = React.useState<Task | null>(initialTasks[0]);
 
-
+  // Add a new task
   const addValue = () => {
     const currentDate = new Date().toISOString().slice(0, 10);
     taskBeingEdited ? taskBeingEdited.isSelected = false : null;
     const newTask: Task = {
       id: tasks.length + 1,
       title: "Task",
-      priority: "Moyen",
+      priority: "Medium",
       deadline: currentDate,
       isSelected: true,
       description: "",
@@ -57,6 +58,7 @@ const TaskView: React.FC<TaskViewProps> = ({view}) => {
     setTaskBeingEdited(newTask);
   };
 
+  // Handle click on a task
   const handleTaskClick = (task: Task) => {
     taskBeingEdited ? taskBeingEdited.isSelected = false : null;
     task.isSelected = true;
@@ -64,6 +66,7 @@ const TaskView: React.FC<TaskViewProps> = ({view}) => {
     console.log(taskBeingEdited);
   };
 
+  // Generic function to update a task property
   const updateTaskProperty = (
       taskId: number,
       updateFunction: (task: Task) => void
@@ -79,9 +82,9 @@ const TaskView: React.FC<TaskViewProps> = ({view}) => {
     });
   };
 
-
+  // Specific functions to update task properties
   const onTitleChange = (taskId: number, newTitle: string) => {
-    console.log("je passe bien oui oui");
+    console.log("Successfully passed through");
     updateTaskProperty(taskId, (task) => {
       task.title = newTitle;
     });
@@ -111,6 +114,7 @@ const TaskView: React.FC<TaskViewProps> = ({view}) => {
     });
   };
 
+  // Render the component based on the selected view
   const renderView = () => {
     switch (view) {
       case "Tasks List":
@@ -125,16 +129,16 @@ const TaskView: React.FC<TaskViewProps> = ({view}) => {
             onDeadlineChange={onDeadlineChange}
             onPriorityChange={onPriorityChange}
             onDescriptionChange={onDescriptionChange}
-        />
+        />;
       case "Labels Board":
-        return <LabelsBoardView tagsPossibles={tagsPossibles}
-                                tasks={tasks}></LabelsBoardView>;
+        return <LabelsBoardView tagsPossibles={tagsPossibles} tasks={tasks}></LabelsBoardView>;
       default:
-        return <CalendarView/>;
+        return <CalendarView />;
     }
   };
 
-  return <>{renderView()}</>
+  // Render the main component
+  return <>{renderView()}</>;
 };
 
 export default TaskView;

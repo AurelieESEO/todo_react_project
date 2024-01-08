@@ -4,6 +4,7 @@ import TaskEdit from "./TaskEdit.tsx";
 import Task from "../model/Task.tsx";
 import Tag from "../model/Tag.tsx";
 
+// Define the props for TaskListView component
 type TaskListViewProps = {
   tagsPossibles: Tag[];
   tasks: Task[];
@@ -17,19 +18,20 @@ type TaskListViewProps = {
   onDescriptionChange: (taskId: number, newDescription: string) => void;
 };
 
+// TaskListView component
 const TaskListView: React.FC<TaskListViewProps> = (
-    {tagsPossibles, tasks, taskBeingEdited, addValue, handleTaskClick, onIsDoneChange,
+    { tagsPossibles, tasks, taskBeingEdited, addValue, handleTaskClick, onIsDoneChange,
       onTitleChange, onDeadlineChange, onPriorityChange, onDescriptionChange }) => {
-  //const tagsPossibles = ["Cuisine", "Ménage", "Travail", "Famille",
-  // "Finances"];
 
+  // Log the tagsPossibles array
   console.log(tagsPossibles);
 
+  // TSX for the TaskListView component
   return (
-      <div
-          className="px-4 py-8 flex flex-row gap-4 justify-start w-full h-full">
+      <div className="px-4 py-8 flex flex-row gap-4 justify-start w-full h-full">
         <div className="w-3/6 flex flex-col justify-between">
           <div className={"px-4 flex flex-col justify-start overflow-y-auto"}>
+            {/* Map over each task and render a TaskItem for each */}
             {tasks.map((task) => (
                 <TaskItem
                     task={task}
@@ -38,26 +40,22 @@ const TaskListView: React.FC<TaskListViewProps> = (
                 />
             ))}
           </div>
-          <div
-              className="mt-4 pl-4 pr-8 flex justify-center items-center w-full">
-            <button className="w-full btn btn-neutral"
-                    onClick={addValue}>
-              <svg xmlns="http://www.w3.org/2000/svg" fill="none"
-                   viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"
-                   className="w-6 h-6">
-                <path stroke-linecap="round" stroke-linejoin="round"
-                      d="M12 4.5v15m7.5-7.5h-15"/>
+          <div className="mt-4 pl-4 pr-8 flex justify-center items-center w-full">
+            {/* Button to add a new task */}
+            <button className="w-full btn btn-neutral" onClick={addValue}>
+              <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" className="w-6 h-6">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M12 4.5v15m7.5-7.5h-15"/>
               </svg>
             </button>
           </div>
         </div>
+        {/* Render TaskEdit component for editing the selected task */}
         <TaskEdit
             task={taskBeingEdited}
             onTitleChange={onTitleChange}
             onDeadlineChange={onDeadlineChange}
             onPriorityChange={onPriorityChange}
             onDescriptionChange={onDescriptionChange}
-            description={taskBeingEdited ? taskBeingEdited.description : ""}
         />
       </div>
   );
