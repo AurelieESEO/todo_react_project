@@ -1,11 +1,26 @@
 import React from "react";
-import TaskItem from "./TaskItem.tsx";
-import TaskEdit from "./TaskEdit.tsx";
-import Task from "../model/Task.tsx";
 
-const TaskView: React.FC = () => {
-  //const tagsPossibles = ["Cuisine", "Ménage", "Travail", "Famille",
-  // "Finances"];
+import TaskListView from "./TaskListView.tsx";
+import LabelsBoardView from "./LabelsBoardView.tsx";
+import Task from "../model/Task.tsx";
+import Tag from "../model/Tag.tsx";
+import CalendarView from "./ClandarView.tsx";
+
+type TaskViewProps = {
+  view: string;
+};
+
+const TaskView: React.FC<TaskViewProps> = ({view}) => {
+  const tagsPossibles: Tag[] = [
+    {text: "tag1", color: "#FF0000"},
+    {text: "tag2", color: "#00FF00"},
+    {text: "tag3", color: "#0000FF"},
+    {text: "tag4", color: "#FFFF00"},
+    {text: "tag5", color: "#00FFFF"},
+    {text: "tag6", color: "#FF00FF"},
+    {text: "tag7", color: "#FFFFFF"},
+    {text: "tag8", color: "#000000"},
+  ];
 
   const initialTasks: Task[] = [
     {
@@ -22,6 +37,7 @@ const TaskView: React.FC = () => {
 
   const [tasks, setTasks] = React.useState<Task[]>(initialTasks);
   const [taskBeingEdited, setTaskBeingEdited] = React.useState<Task | null>(initialTasks[0]);
+
 
   const addValue = () => {
     const currentDate = new Date().toISOString().slice(0, 10);
@@ -48,101 +64,77 @@ const TaskView: React.FC = () => {
     console.log(taskBeingEdited);
   };
 
-  const onTitleChange = (taskId: number, newTitle: string) => {
-    console.log("je passe bien oui oui")
-    setTasks((prevTasks) =>
-        prevTasks.map((task) => {
-          if (task.id === taskId) {
-            task.title = newTitle;
-            setTaskBeingEdited(task)
-          }
-          return task;
-        }),
-    );
+  const updateTaskProperty = (
+      taskId: number,
+      updateFunction: (task: Task) => void
+  ) => {
+    setTasks((prevTasks: Task[]) => {
+      return prevTasks.map((task) => {
+        if (task.id === taskId) {
+          updateFunction(task);
+          setTaskBeingEdited(task);
+        }
+        return task;
+      });
+    });
   };
+
+
+  const onTitleChange = (taskId: number, newTitle: string) => {
+    console.log("je passe bien oui oui");
+    updateTaskProperty(taskId, (task) => {
+      task.title = newTitle;
+    });
+  };
+
   const onDeadlineChange = (taskId: number, newDeadline: string) => {
-    setTasks((prevTasks) =>
-        prevTasks.map((task) => {
-          if (task.id === taskId) {
-            task.deadline = newDeadline;
-            setTaskBeingEdited(task)
-          }
-          return task;
-        }),
-    );
+    updateTaskProperty(taskId, (task) => {
+      task.deadline = newDeadline;
+    });
   };
 
   const onPriorityChange = (taskId: number, newPriority: string) => {
-    setTasks((prevTasks) =>
-        prevTasks.map((task) => {
-          if (task.id === taskId) {
-            task.priority = newPriority;
-            setTaskBeingEdited(task)
-          }
-          return task;
-        }),
-    );
+    updateTaskProperty(taskId, (task) => {
+      task.priority = newPriority;
+    });
   };
 
   const onDescriptionChange = (taskId: number, newDescription: string) => {
-    setTasks((prevTasks) =>
-        prevTasks.map((task) => {
-          if (task.id === taskId) {
-            task.description = newDescription;
-            setTaskBeingEdited(task)
-          }
-          return task;
-        }),
-    );
+    updateTaskProperty(taskId, (task) => {
+      task.description = newDescription;
+    });
   };
 
   const onIsDoneChange = (taskId: number) => {
-    setTasks((prevTasks) =>
-        prevTasks.map((task) => {
-          if (task.id === taskId) {
-            task.isDone = !task.isDone;
-          }
-          return task;
-        }),
-    );
+    updateTaskProperty(taskId, (task) => {
+      task.isDone = !task.isDone;
+    });
   };
 
-  return (
-      <div
-          className="px-4 py-8 flex flex-row gap-4 justify-start w-full h-full">
-        <div className="w-3/6 flex flex-col justify-between">
-          <div className={"px-4 flex flex-col justify-start overflow-y-auto"}>
-            {tasks.map((task) => (
-                <TaskItem
-                    task={task}
-                    onClick={() => handleTaskClick(task)}
-                    onIsDoneChange={onIsDoneChange}
-                />
-            ))}
-          </div>
-          <div
-              className="mt-4 pl-4 pr-8 flex justify-center items-center w-full">
-            <button className="w-full btn btn-neutral"
-                    onClick={addValue}>
-              <svg xmlns="http://www.w3.org/2000/svg" fill="none"
-                   viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"
-                   className="w-6 h-6">
-                <path stroke-linecap="round" stroke-linejoin="round"
-                      d="M12 4.5v15m7.5-7.5h-15"/>
-              </svg>
-            </button>
-          </div>
-        </div>
-        <TaskEdit
-            task={taskBeingEdited}
+  const renderView = () => {
+    switch (view) {
+      case "Tasks List":
+        return <TaskListView
+            tagsPossibles={tagsPossibles}
+            tasks={tasks}
+            taskBeingEdited={taskBeingEdited}
+            addValue={addValue}
+            handleTaskClick={handleTaskClick}
+            onIsDoneChange={onIsDoneChange}
             onTitleChange={onTitleChange}
             onDeadlineChange={onDeadlineChange}
             onPriorityChange={onPriorityChange}
             onDescriptionChange={onDescriptionChange}
-            description={taskBeingEdited ? taskBeingEdited.description : ""}
         />
-      </div>
-  );
+      case "Labels Board":
+        return <LabelsBoardView tagsPossibles={tagsPossibles}
+                                tasks={tasks}></LabelsBoardView>;
+      default:
+        return <CalendarView/>;
+    }
+  };
+
+  return <>{renderView()}</>
 };
 
 export default TaskView;

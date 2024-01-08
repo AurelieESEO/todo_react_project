@@ -15,7 +15,7 @@ N
 ]
 -todo_react_project/src/components/Sidebar.tsx,e\f\efb8556cff967c5297ea208a3e745b6b5b0f8b41
 a
-1todo_react_project/src/components/SidebarItem.tsx,5/e/5eaccc4e5990298716480b15e10eed72f2a3a301
+1todo_react_project/src/components/SidebarItem.tsx,5\e\5eaccc4e5990298716480b15e10eed72f2a3a301
 N
 todo_react_project/src/App.css,f\f\ffeaa01bc5f8ccb116f32b76a575208d0efaecb9
 ]
@@ -34,3 +34,11 @@ O
 todo_react_project/src/main.tsx,a\6\a64f3987eccec7082997e9143ef2208913255f5a
 T
 $todo_react_project/src/model/Tag.tsx,8\4\84fcad428a8736d12e61480ccf6823ed69794a5c
+b
+2todo_react_project/src/components/TaskListView.tsx,6\3\634f7fa821af826c3afd15152b6fa6791cd2ac85
+a
+1todo_react_project/src/components/LabelsBoardView,b\8\b88617f8c3578f79bb6bde17010c33f797e68138
+e
+5todo_react_project/src/components/LabelsBoardView.tsx,4\d\4d48e1ae40417d933188d29b1bda086a42c9b5c6
+a
+1todo_react_project/src/components/ClandarView.tsx,8\0\80cf8021abbfc87697c6ce419b6fa778c2449e92
