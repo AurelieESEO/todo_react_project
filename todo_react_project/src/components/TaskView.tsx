@@ -4,38 +4,20 @@ import TaskEdit from "./TaskEdit.tsx";
 import Task from "../model/Task.tsx";
 
 const TaskView: React.FC = () => {
+  //const tagsPossibles = ["Cuisine", "Ménage", "Travail", "Famille",
+  // "Finances"];
+
   const initialTasks: Task[] = [
     {
       id: 1,
-      title: "Task 1",
-      deadline: "2021-10-01",
+      title: "Faire le repas de Noël",
+      deadline: "2023-12-25",
       priority: "Urgent",
       isSelected: true,
-      tags: ["tag1", "tag2"],
-      tagsPossibles: ["tag1", "tag2", "tag3", "tag4"],
-      description: "description 1",
+      isDone: false,
+      tags: ["Cuisine", "Famille"],
+      description: "Entrées : huitres, saumon fumé, foie gras\nPlat : dinde aux marrons\nDessert : bûche de Noël",
     },
-    {
-      id: 2,
-      title: "Task 2",
-      deadline: "2021-10-02",
-      priority: "Moyen",
-      isSelected: false,
-      tags: ["tag1", "tag2"],
-      tagsPossibles: ["tag1", "tag2", "tag3", "tag4"],
-      description: "description 2",
-    },
-    {
-      id: 3,
-      title: "Task 3",
-      deadline: "2021-10-03",
-      priority: "Faible",
-      isSelected: false,
-      tags: ["tag1", "tag2"],
-      tagsPossibles: ["tag1", "tag2", "tag3", "tag4"],
-      description: "description 3",
-    },
-
   ];
 
   const [tasks, setTasks] = React.useState<Task[]>(initialTasks);
@@ -44,27 +26,37 @@ const TaskView: React.FC = () => {
   const addValue = () => {
     const currentDate = new Date().toISOString().slice(0, 10);
     taskBeingEdited ? taskBeingEdited.isSelected = false : null;
-    const newTask: Task = { id: tasks.length + 1, title: "Task", priority: "Moyen", deadline: currentDate, isSelected: true, description: "", tags: [], tagsPossibles: [] };
+    const newTask: Task = {
+      id: tasks.length + 1,
+      title: "Task",
+      priority: "Moyen",
+      deadline: currentDate,
+      isSelected: true,
+      description: "",
+      tags: [],
+      isDone: false
+    };
     setTasks([newTask, ...tasks]);
-    setTaskBeingEdited(newTask)
+    console.log(tasks)
+    setTaskBeingEdited(newTask);
   };
 
   const handleTaskClick = (task: Task) => {
-    console.log(taskBeingEdited)
     taskBeingEdited ? taskBeingEdited.isSelected = false : null;
     task.isSelected = true;
     setTaskBeingEdited(task);
+    console.log(taskBeingEdited);
   };
 
-  const handleTitleChange = (taskId: number, newTitle: string) => {
+  const onTitleChange = (taskId: number, newTitle: string) => {
     console.log("je passe bien oui oui")
     setTasks((prevTasks) =>
         prevTasks.map((task) => {
-              if (task.id === taskId) {
-                task.title = newTitle;
-                setTaskBeingEdited(task)
-              }
-              return task;
+          if (task.id === taskId) {
+            task.title = newTitle;
+            setTaskBeingEdited(task)
+          }
+          return task;
         }),
     );
   };
@@ -104,24 +96,32 @@ const TaskView: React.FC = () => {
     );
   };
 
+  const onIsDoneChange = (taskId: number) => {
+    setTasks((prevTasks) =>
+        prevTasks.map((task) => {
+          if (task.id === taskId) {
+            task.isDone = !task.isDone;
+          }
+          return task;
+        }),
+    );
+  };
 
   return (
-      <div className="px-4 py-8 flex flex-row gap-4 justify-start w-full h-full">
+      <div
+          className="px-4 py-8 flex flex-row gap-4 justify-start w-full h-full">
         <div className="w-3/6 flex flex-col justify-between">
           <div className={"px-4 flex flex-col justify-start overflow-y-auto"}>
             {tasks.map((task) => (
                 <TaskItem
-                    key={task.id}
-                    id={task.id}
-                    title={task.title}
-                    deadline={task.deadline}
-                    priority={task.priority}
-                    isSelected={task.isSelected}
+                    task={task}
                     onClick={() => handleTaskClick(task)}
+                    onIsDoneChange={onIsDoneChange}
                 />
             ))}
           </div>
-          <div className="mt-4 pl-4 pr-8 flex justify-center items-center w-full">
+          <div
+              className="mt-4 pl-4 pr-8 flex justify-center items-center w-full">
             <button className="w-full btn btn-neutral"
                     onClick={addValue}>
               <svg xmlns="http://www.w3.org/2000/svg" fill="none"
@@ -133,13 +133,14 @@ const TaskView: React.FC = () => {
             </button>
           </div>
         </div>
-        <TaskEdit task={taskBeingEdited}
-                  onTitleChange={handleTitleChange}
-                  onDeadlineChange={onDeadlineChange}
-                  onPriorityChange={onPriorityChange}
-                  onDescriptionChange={onDescriptionChange}
-                  description={taskBeingEdited ? taskBeingEdited.description : ""}>
-        </TaskEdit>
+        <TaskEdit
+            task={taskBeingEdited}
+            onTitleChange={onTitleChange}
+            onDeadlineChange={onDeadlineChange}
+            onPriorityChange={onPriorityChange}
+            onDescriptionChange={onDescriptionChange}
+            description={taskBeingEdited ? taskBeingEdited.description : ""}
+        />
       </div>
   );
 };

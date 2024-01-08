@@ -5,8 +5,8 @@ type Task = {
   priority: string;
   isSelected: boolean;
   tags : string[];
-  tagsPossibles : string[];
   description : string;
+  isDone: boolean;
 };
 
 export default Task;

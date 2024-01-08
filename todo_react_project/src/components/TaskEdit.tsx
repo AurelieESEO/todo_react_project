@@ -6,6 +6,7 @@ type TaskEditProps = {
   onTitleChange: (taskId: number, newTitle: string) => void;
   onDeadlineChange: (taskId: number, newDeadline: string) => void;
   onPriorityChange: (taskId: number, newDeadline: string) => void;
+  onDescriptionChange: (taskId: number, newDescription: string) => void;
   description: string;
 };
 

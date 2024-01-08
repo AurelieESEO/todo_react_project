@@ -24,7 +24,7 @@ const Sidebar: React.FC = () => {
 	return (
 		<aside className={`transition-all duration-200 h-screen ${short ? 'w-20' : 'w-64'}`}>
 			<nav
-				className={`bg-base-300/20 h-full flex flex-col border-accent-content shadow-sm`}>
+				className={`bg-base-300/30 h-full flex flex-col border-accent-content shadow-sm`}>
 				<div className={`p-4 pb-2 flex ${short ? 'justify-center' : 'justify-between'} items-center`}>
 					{short ?
 						null :
