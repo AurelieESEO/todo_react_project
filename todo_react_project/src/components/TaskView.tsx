@@ -2,28 +2,34 @@ import React from "react";
 import TaskItem from "./TaskItem.tsx";
 import TaskEdit from "./TaskEdit.tsx";
 import Task from "../model/Task.tsx";
+import Tag from "../model/Tag.tsx";
 
 const TaskView: React.FC = () => {
-  //const tagsPossibles = ["Cuisine", "Ménage", "Travail", "Famille",
-  // "Finances"];
 
-  const initialTasks: Task[] = [
-    {
-      id: 1,
-      title: "Faire le repas de Noël",
-      deadline: "2023-12-25",
-      priority: "Urgent",
-      isSelected: true,
-      isDone: false,
-      tags: ["Cuisine", "Famille"],
-      description: "Entrées : huitres, saumon fumé, foie gras\nPlat : dinde aux marrons\nDessert : bûche de Noël",
-    },
-  ];
+    const initialTagsPossibles: Tag[] = [
+    {text: "Cuisine", color: "#F87171"},
+    {text: "Famille", color: "#FBBF24"},
+    ]
 
-  const [tasks, setTasks] = React.useState<Task[]>(initialTasks);
-  const [taskBeingEdited, setTaskBeingEdited] = React.useState<Task | null>(initialTasks[0]);
+  const [tagsPossibles, setTagsPossibles] = React.useState<Tag[]>(initialTagsPossibles);
 
-  const addValue = () => {
+    const initialTasks: Task[] = [
+        {
+            id: 1,
+            title: "Faire le repas de Noël",
+            deadline: "2023-12-25",
+            priority: "Urgent",
+            isSelected: true,
+            isDone: false,
+            tags: [tagsPossibles[0]],
+            description: "Entrées : huitres, saumon fumé, foie gras\nPlat : dinde aux marrons\nDessert : bûche de Noël",
+        },
+    ];
+
+    const [tasks, setTasks] = React.useState<Task[]>(initialTasks);
+    const [taskBeingEdited, setTaskBeingEdited] = React.useState<Task | null>(initialTasks[0]);
+
+    const addValue = () => {
     const currentDate = new Date().toISOString().slice(0, 10);
     taskBeingEdited ? taskBeingEdited.isSelected = false : null;
     const newTask: Task = {
@@ -107,6 +113,24 @@ const TaskView: React.FC = () => {
     );
   };
 
+    const onTagChange = (taskId: number, newTags: Tag[]) => {
+        setTasks((prevTasks) =>
+            prevTasks.map((task) => {
+            if (task.id === taskId) {
+                task.tags = newTags;
+                setTaskBeingEdited(task)
+            }
+            return task;
+            }),
+        );
+    };
+
+    const onTagsPossibleChange = (newTagPossible: Tag) => {
+        setTagsPossibles([...tagsPossibles, newTagPossible]);
+        console.log("helloooooo")
+        console.log(tagsPossibles);
+    };
+
   return (
       <div
           className="px-4 py-8 flex flex-row gap-4 justify-start w-full h-full">
@@ -139,7 +163,10 @@ const TaskView: React.FC = () => {
             onDeadlineChange={onDeadlineChange}
             onPriorityChange={onPriorityChange}
             onDescriptionChange={onDescriptionChange}
+            onTagsChange={onTagChange}
             description={taskBeingEdited ? taskBeingEdited.description : ""}
+            tagsPossible={tagsPossibles}
+            onTagsPossibleChange={onTagsPossibleChange}
         />
       </div>
   );
