@@ -1,10 +1,16 @@
 import React from "react";
-import TaskItem from "./TaskItem.tsx";
-import TaskEdit from "./TaskEdit.tsx";
+
+import TaskListView from "./TaskListView.tsx";
+import LabelsBoardView from "./LabelsBoardView.tsx";
 import Task from "../model/Task.tsx";
 import Tag from "../model/Tag.tsx";
+import CalendarView from "./ClandarView.tsx";
 
-const TaskView: React.FC = () => {
+type TaskViewProps = {
+  view: string;
+};
+
+const TaskView: React.FC<TaskViewProps> = ({ view }) => {
 
     const initialTagsPossibles: Tag[] = [
     {text: "Cuisine", color: "#F87171"},
@@ -13,29 +19,31 @@ const TaskView: React.FC = () => {
 
   const [tagsPossibles, setTagsPossibles] = React.useState<Tag[]>(initialTagsPossibles);
 
-    const initialTasks: Task[] = [
-        {
-            id: 1,
-            title: "Faire le repas de Noël",
-            deadline: "2023-12-25",
-            priority: "Urgent",
-            isSelected: true,
-            isDone: false,
-            tags: [tagsPossibles[0]],
-            description: "Entrées : huitres, saumon fumé, foie gras\nPlat : dinde aux marrons\nDessert : bûche de Noël",
-        },
+  const initialTasks: Task[] = [
+      {
+        id: 1,
+        title: "Faire le repas de Noël",
+        deadline: "2023-12-25",
+        priority: "Urgent",
+        isSelected: true,
+        isDone: false,
+        tags: [tagsPossibles[0]],
+        description: "Entrées : huitres, saumon fumé, foie gras\nPlat : dinde aux marrons\nDessert : bûche de Noël",
+      },
     ];
 
-    const [tasks, setTasks] = React.useState<Task[]>(initialTasks);
-    const [taskBeingEdited, setTaskBeingEdited] = React.useState<Task | null>(initialTasks[0]);
+  // State for tasks and the task currently being edited
+  const [tasks, setTasks] = React.useState<Task[]>(initialTasks);
+  const [taskBeingEdited, setTaskBeingEdited] = React.useState<Task | null>(initialTasks[0]);
 
-    const addValue = () => {
+  // Add a new task
+  const addValue = () => {
     const currentDate = new Date().toISOString().slice(0, 10);
     taskBeingEdited ? taskBeingEdited.isSelected = false : null;
     const newTask: Task = {
       id: tasks.length + 1,
       title: "Task",
-      priority: "Moyen",
+      priority: "Medium",
       deadline: currentDate,
       isSelected: true,
       description: "",
@@ -47,6 +55,7 @@ const TaskView: React.FC = () => {
     setTaskBeingEdited(newTask);
   };
 
+  // Handle click on a task
   const handleTaskClick = (task: Task) => {
     taskBeingEdited ? taskBeingEdited.isSelected = false : null;
     task.isSelected = true;
@@ -54,111 +63,83 @@ const TaskView: React.FC = () => {
     console.log(taskBeingEdited);
   };
 
-  const onTitleChange = (taskId: number, newTitle: string) => {
-    console.log("je passe bien oui oui")
-    setTasks((prevTasks) =>
-        prevTasks.map((task) => {
-          if (task.id === taskId) {
-            task.title = newTitle;
-            setTaskBeingEdited(task)
-          }
-          return task;
-        }),
-    );
+  // Generic function to update a task property
+  const updateTaskProperty = (
+      taskId: number,
+      updateFunction: (task: Task) => void
+  ) => {
+    setTasks((prevTasks: Task[]) => {
+      return prevTasks.map((task) => {
+        if (task.id === taskId) {
+          updateFunction(task);
+          setTaskBeingEdited(task);
+        }
+        return task;
+      });
+    });
   };
+
+  // Specific functions to update task properties
+  const onTitleChange = (taskId: number, newTitle: string) => {
+    console.log("Successfully passed through");
+    updateTaskProperty(taskId, (task) => {
+      task.title = newTitle;
+    });
+  };
+
   const onDeadlineChange = (taskId: number, newDeadline: string) => {
-    setTasks((prevTasks) =>
-        prevTasks.map((task) => {
-          if (task.id === taskId) {
-            task.deadline = newDeadline;
-            setTaskBeingEdited(task)
-          }
-          return task;
-        }),
-    );
+    updateTaskProperty(taskId, (task) => {
+      task.deadline = newDeadline;
+    });
   };
 
   const onPriorityChange = (taskId: number, newPriority: string) => {
-    setTasks((prevTasks) =>
-        prevTasks.map((task) => {
-          if (task.id === taskId) {
-            task.priority = newPriority;
-            setTaskBeingEdited(task)
-          }
-          return task;
-        }),
-    );
+    updateTaskProperty(taskId, (task) => {
+      task.priority = newPriority;
+    });
   };
 
   const onDescriptionChange = (taskId: number, newDescription: string) => {
-    setTasks((prevTasks) =>
-        prevTasks.map((task) => {
-          if (task.id === taskId) {
-            task.description = newDescription;
-            setTaskBeingEdited(task)
-          }
-          return task;
-        }),
-    );
+    updateTaskProperty(taskId, (task) => {
+      task.description = newDescription;
+    });
   };
 
   const onIsDoneChange = (taskId: number) => {
-    setTasks((prevTasks) =>
-        prevTasks.map((task) => {
-          if (task.id === taskId) {
-            task.isDone = !task.isDone;
-          }
-          return task;
-        }),
-    );
+    updateTaskProperty(taskId, (task) => {
+      task.isDone = !task.isDone;
+    });
   };
 
-    const onTagChange = (taskId: number, newTags: Tag[]) => {
-        setTasks((prevTasks) =>
-            prevTasks.map((task) => {
-            if (task.id === taskId) {
-                task.tags = newTags;
-                setTaskBeingEdited(task)
-            }
-            return task;
-            }),
-        );
+  const onTagChange = (taskId: number, newTags: Tag[]) => {
+      setTasks((prevTasks) =>
+          prevTasks.map((task) => {
+          if (task.id === taskId) {
+              task.tags = newTags;
+              setTaskBeingEdited(task)
+          }
+          return task;
+          }),
+      );
     };
 
-    const onTagsPossibleChange = (newTagPossible: Tag) => {
-        setTagsPossibles([...tagsPossibles, newTagPossible]);
-        console.log("helloooooo")
-        console.log(tagsPossibles);
-    };
+  const onTagsPossibleChange = (newTagPossible: Tag) => {
+      setTagsPossibles([...tagsPossibles, newTagPossible]);
+      console.log("helloooooo")
+      console.log(tagsPossibles);
+  };
 
-  return (
-      <div
-          className="px-4 py-8 flex flex-row gap-4 justify-start w-full h-full">
-        <div className="w-3/6 flex flex-col justify-between">
-          <div className={"px-4 flex flex-col justify-start overflow-y-auto"}>
-            {tasks.map((task) => (
-                <TaskItem
-                    task={task}
-                    onClick={() => handleTaskClick(task)}
-                    onIsDoneChange={onIsDoneChange}
-                />
-            ))}
-          </div>
-          <div
-              className="mt-4 pl-4 pr-8 flex justify-center items-center w-full">
-            <button className="w-full btn btn-neutral"
-                    onClick={addValue}>
-              <svg xmlns="http://www.w3.org/2000/svg" fill="none"
-                   viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"
-                   className="w-6 h-6">
-                <path stroke-linecap="round" stroke-linejoin="round"
-                      d="M12 4.5v15m7.5-7.5h-15"/>
-              </svg>
-            </button>
-          </div>
-        </div>
-        <TaskEdit
-            task={taskBeingEdited}
+
+  // Render the component based on the selected view
+  const renderView = () => {
+    switch (view) {
+      case "Tasks List":
+        return <TaskListView
+            tasks={tasks}
+            taskBeingEdited={taskBeingEdited}
+            addValue={addValue}
+            handleTaskClick={handleTaskClick}
+            onIsDoneChange={onIsDoneChange}
             onTitleChange={onTitleChange}
             onDeadlineChange={onDeadlineChange}
             onPriorityChange={onPriorityChange}
@@ -167,9 +148,16 @@ const TaskView: React.FC = () => {
             description={taskBeingEdited ? taskBeingEdited.description : ""}
             tagsPossible={tagsPossibles}
             onTagsPossibleChange={onTagsPossibleChange}
-        />
-      </div>
-  );
+            />;
+      case "Labels Board":
+        return <LabelsBoardView tagsPossibles={tagsPossibles} tasks={tasks}></LabelsBoardView>;
+      default:
+        return <CalendarView />;
+    }
+  };
+
+  // Render the main component
+  return <>{renderView()}</>;
 };
 
 export default TaskView;
