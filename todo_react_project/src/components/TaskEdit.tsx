@@ -8,6 +8,7 @@ type TaskEditProps = {
   onTitleChange: (taskId: number, newTitle: string) => void;
   onDeadlineChange: (taskId: number, newDeadline: string) => void;
   onPriorityChange: (taskId: number, newDeadline: string) => void;
+  onStatusChange: (taskId: number, newStatus: string) => void;
   onDescriptionChange: (taskId: number, newDescription: string) => void;
   tagsPossible: Tag[];
   onTagsChange: (taskId: number, newTags: Tag[]) => void;
@@ -42,6 +43,7 @@ const TaskEdit: React.FC<TaskEditProps> = ({
                                              onTitleChange,
                                              onDeadlineChange,
                                              onPriorityChange,
+                                             onStatusChange,
                                              onDescriptionChange,
                                              onTagsChange,
                                              tagsPossible,
@@ -50,7 +52,8 @@ const TaskEdit: React.FC<TaskEditProps> = ({
 
   // Local state to hold the edited task
   const [editedTask, setEditedTask] = React.useState<Task>(task!);
-  const prioritiesAvailable = ['Urgent', 'Moyen', 'Faible'];
+  const prioritiesAvailable = ['Urgent', 'High', 'Medium', 'Low'];
+  const statusAvailable = ['Not Started', 'In Progress', 'In Waiting', 'Done'];
   const [allTagsVisible, setAllTagsVisible] = React.useState(false);
 
   // Update the local state when the task prop changes
@@ -156,6 +159,22 @@ const TaskEdit: React.FC<TaskEditProps> = ({
               <option disabled>Select Priority</option>
               {prioritiesAvailable.map((priority, index) => (
                   <option key={index}>{priority}</option>
+              ))}
+            </select>
+          </div>
+          {/* Dropdown for task status */}
+          <div className="flex flex-column">
+            <p>Status</p>
+            <select
+                className="select select-bordered w-full max-w-xs"
+                value={editedTask ? editedTask.status : 'Status'}
+                onChange={(event: React.ChangeEvent<never>) =>
+                    handleInputChange(event, 'status', setEditedTask, task, onStatusChange)
+                }
+            >
+              <option disabled>Select Status</option>
+              {statusAvailable.map((status, index) => (
+                  <option key={index}>{status}</option>
               ))}
             </select>
           </div>

@@ -25,6 +25,7 @@ const TaskView: React.FC<TaskViewProps> = ({ view }) => {
         title: "Faire le repas de Noël",
         deadline: "2023-12-25",
         priority: "Urgent",
+        status: "Not Started",
         isSelected: true,
         isDone: false,
         tags: [tagsPossibles[0]],
@@ -44,6 +45,7 @@ const TaskView: React.FC<TaskViewProps> = ({ view }) => {
       id: tasks.length + 1,
       title: "Task",
       priority: "Medium",
+      status: "Not Started",
       deadline: currentDate,
       isSelected: true,
       description: "",
@@ -99,6 +101,12 @@ const TaskView: React.FC<TaskViewProps> = ({ view }) => {
     });
   };
 
+  const onStatusChange = (taskId: number, newStatus: string) => {
+    updateTaskProperty(taskId, (task) => {
+      task.status = newStatus;
+    });
+  }
+
   const onDescriptionChange = (taskId: number, newDescription: string) => {
     updateTaskProperty(taskId, (task) => {
       task.description = newDescription;
@@ -143,6 +151,7 @@ const TaskView: React.FC<TaskViewProps> = ({ view }) => {
             onTitleChange={onTitleChange}
             onDeadlineChange={onDeadlineChange}
             onPriorityChange={onPriorityChange}
+            onStatusChange={onStatusChange}
             onDescriptionChange={onDescriptionChange}
             onTagChange={onTagChange}
             tagsPossibles={tagsPossibles}
