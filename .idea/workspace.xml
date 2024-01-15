@@ -4,14 +4,15 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="0a5068a2-1269-4297-ab9f-fc760118211e" name="Changes" comment="daisyui + beginning of the menu">
-      <change beforePath="$PROJECT_DIR$/.idea/sonarlint/issuestore/index.pb" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/sonarlint/issuestore/index.pb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/sonarlint/securityhotspotstore/index.pb" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/sonarlint/securityhotspotstore/index.pb" afterDir="false" />
+    <list default="true" id="3ebcb9fe-a5a3-4aac-92a3-591a98f03125" name="Changes" comment="side bar items activated&#10;can now click on them and change the view&#10;refacto of lot of functionnalities to be shared for all the tabs">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/todo_react_project/src/App.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/todo_react_project/src/App.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/todo_react_project/src/components/Sidebar.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/todo_react_project/src/components/Sidebar.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/todo_react_project/src/index.css" beforeDir="false" afterPath="$PROJECT_DIR$/todo_react_project/src/index.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/todo_react_project/tailwind.config.js" beforeDir="false" afterPath="$PROJECT_DIR$/todo_react_project/tailwind.config.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/todo_react_project/src/components/SidebarItem.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/todo_react_project/src/components/SidebarItem.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/todo_react_project/src/components/TaskEdit.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/todo_react_project/src/components/TaskEdit.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/todo_react_project/src/components/TaskItem.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/todo_react_project/src/components/TaskItem.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/todo_react_project/src/components/TaskListView.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/todo_react_project/src/components/TaskListView.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/todo_react_project/src/components/TaskView.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/todo_react_project/src/components/TaskView.tsx" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -21,7 +22,7 @@
   <component name="Git.Settings">
     <option name="RECENT_BRANCH_BY_REPOSITORY">
       <map>
-        <entry key="$PROJECT_DIR$" value="add_todo_form" />
+        <entry key="$PROJECT_DIR$" value="mainPage" />
       </map>
     </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -33,9 +34,9 @@
     <option name="stateVersion" value="1" />
   </component>
   <component name="ProjectColorInfo">{
-  &quot;associatedIndex&quot;: 2
+  &quot;associatedIndex&quot;: 7
 }</component>
-  <component name="ProjectId" id="2Y7AhMMCBIW3LsChD9mXZI1wsID" />
+  <component name="ProjectId" id="2YUR1uRw1Vy1zNtkv4PF3bhJHmR" />
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
@@ -43,20 +44,22 @@
   </component>
   <component name="PropertiesComponent">{
   &quot;keyToString&quot;: {
+    &quot;ASKED_MARK_IGNORED_FILES_AS_EXCLUDED&quot;: &quot;true&quot;,
     &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
     &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
     &quot;RunOnceActivity.go.formatter.settings.were.checked&quot;: &quot;true&quot;,
     &quot;RunOnceActivity.go.migrated.go.modules.settings&quot;: &quot;true&quot;,
     &quot;SONARLINT_PRECOMMIT_ANALYSIS&quot;: &quot;true&quot;,
     &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
-    &quot;dart.analysis.tool.window.visible&quot;: &quot;false&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;vertical__nav&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;mainPage__bis&quot;,
     &quot;go.import.settings.migrated&quot;: &quot;true&quot;,
+    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
     &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
-    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
     &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
     &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
     &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;npm.dev.executor&quot;: &quot;Run&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;Ignore Files Support&quot;,
     &quot;ts.external.directory.path&quot;: &quot;C:\\Users\\odial\\Documents\\Aurelie\\ESEO\\I3\\React\\todo_react_project\\todo_react_project\\node_modules\\typescript\\lib&quot;,
     &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
@@ -75,42 +78,74 @@
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
-    <task active="true" id="Default" summary="Default task">
-      <changelist id="0a5068a2-1269-4297-ab9f-fc760118211e" name="Changes" comment="" />
-      <created>1699866365279</created>
-      <option name="number" value="Default" />
-      <option name="presentableId" value="Default" />
-      <updated>1699866365279</updated>
-      <workItem from="1699866366355" duration="259000" />
-      <workItem from="1699866662552" duration="4659000" />
-      <workItem from="1700469931604" duration="1179000" />
-    </task>
-    <task id="LOCAL-00001" summary="react project creation">
+    <task id="LOCAL-00001" summary="gitignore">
       <option name="closed" value="true" />
-      <created>1699866581973</created>
+      <created>1700473274162</created>
       <option name="number" value="00001" />
       <option name="presentableId" value="LOCAL-00001" />
       <option name="project" value="LOCAL" />
-      <updated>1699866581973</updated>
+      <updated>1700473274162</updated>
     </task>
-    <task id="LOCAL-00002" summary="init of tailwind">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="3ebcb9fe-a5a3-4aac-92a3-591a98f03125" name="Changes" comment="gitignore" />
+      <created>1700577995079</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1700577995079</updated>
+      <workItem from="1700578007460" duration="619000" />
+      <workItem from="1700725786566" duration="41000" />
+      <workItem from="1702883191466" duration="12875000" />
+      <workItem from="1704398076072" duration="62000" />
+      <workItem from="1704697600848" duration="12326000" />
+    </task>
+    <task id="LOCAL-00002" summary="Redesigned main page UI">
       <option name="closed" value="true" />
-      <created>1699868849904</created>
+      <created>1702893037174</created>
       <option name="number" value="00002" />
       <option name="presentableId" value="LOCAL-00002" />
       <option name="project" value="LOCAL" />
-      <updated>1699868849904</updated>
+      <updated>1702893037175</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL-00003" summary="Tag file added&#10;Little other changes">
+      <option name="closed" value="true" />
+      <created>1704698056921</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1704698056921</updated>
+    </task>
+    <task id="LOCAL-00004" summary="side bar items activated&#10;can now click on them and change the view&#10;refacto of lot of functionnalities to be shared for all the tabs">
+      <option name="closed" value="true" />
+      <created>1704709721014</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1704709721014</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
   </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="react project creation" />
-    <MESSAGE value="init of tailwind" />
-    <option name="LAST_COMMIT_MESSAGE" value="init of tailwind" />
+    <MESSAGE value="fonts of title and theme chose" />
+    <MESSAGE value="gitignore" />
+    <MESSAGE value="Redesigned main page UI" />
+    <MESSAGE value="Tag file added&#10;Little other changes" />
+    <MESSAGE value="side bar items activated&#10;can now click on them and change the view&#10;refacto of lot of functionnalities to be shared for all the tabs" />
+    <option name="LAST_COMMIT_MESSAGE" value="side bar items activated&#10;can now click on them and change the view&#10;refacto of lot of functionnalities to be shared for all the tabs" />
   </component>
   <component name="VgoProject">
     <integration-enabled>false</integration-enabled>

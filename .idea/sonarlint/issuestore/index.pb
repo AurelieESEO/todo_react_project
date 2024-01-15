@@ -22,3 +22,23 @@ N
 -.idea/sonarlint/securityhotspotstore/index.pb,8\8\88a9255124c95bdc913197c120a8d560edc59c8e
 S
 #.idea/sonarlint/issuestore/index.pb,9\f\9fe84ebb15faf917b7def6236dba604453cc61e0
+^
+.todo_react_project/src/components/TaskView.tsx,9\9\9915f50055a4afbb6f6cc442425c73c141ab3336
+^
+.todo_react_project/src/components/TaskEdit.tsx,7\f\7fae181f855635b34b18d088ac25b6037da3b13c
+^
+.todo_react_project/src/components/TaskItem.tsx,c\d\cdd051a54e673cd0317f40c3429151d7621fd7d8
+U
+%todo_react_project/src/model/Task.tsx,8\c\8cee8d6f7c02b06fbda7d26a9d13b59ac01e476a
+O
+todo_react_project/src/main.tsx,a\6\a64f3987eccec7082997e9143ef2208913255f5a
+T
+$todo_react_project/src/model/Tag.tsx,8\4\84fcad428a8736d12e61480ccf6823ed69794a5c
+b
+2todo_react_project/src/components/TaskListView.tsx,6\3\634f7fa821af826c3afd15152b6fa6791cd2ac85
+a
+1todo_react_project/src/components/LabelsBoardView,b\8\b88617f8c3578f79bb6bde17010c33f797e68138
+e
+5todo_react_project/src/components/LabelsBoardView.tsx,4\d\4d48e1ae40417d933188d29b1bda086a42c9b5c6
+a
+1todo_react_project/src/components/ClandarView.tsx,8\0\80cf8021abbfc87697c6ce419b6fa778c2449e92
