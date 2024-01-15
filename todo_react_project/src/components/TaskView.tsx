@@ -11,29 +11,26 @@ type TaskViewProps = {
 };
 
 const TaskView: React.FC<TaskViewProps> = ({ view }) => {
-  // Definition of possible tags
-  const tagsPossibles: Tag[] = [
-    { text: "tag1", color: "#FF0000" },
-    { text: "tag2", color: "#00FF00" },
-    { text: "tag3", color: "#0000FF"},
-    { text: "tag4", color: "#FFFF00" },
-    { text: "tag5", color: "#00FFFF" },
-    { text: "tag6", color: "#FF00FF" },
-  ];
 
-  // Initial tasks
+    const initialTagsPossibles: Tag[] = [
+    {text: "Cuisine", color: "#F87171"},
+    {text: "Famille", color: "#FBBF24"},
+    ]
+
+  const [tagsPossibles, setTagsPossibles] = React.useState<Tag[]>(initialTagsPossibles);
+
   const initialTasks: Task[] = [
-    {
-      id: 1,
-      title: "Prepare Christmas Dinner",
-      deadline: "2023-12-25",
-      priority: "Urgent",
-      isSelected: true,
-      isDone: false,
-      tags: ["Cooking", "Family"],
-      description: "Starters: oysters, smoked salmon, foie gras\nMain course: turkey with chestnuts\nDessert: Yule log",
-    },
-  ];
+      {
+        id: 1,
+        title: "Faire le repas de Noël",
+        deadline: "2023-12-25",
+        priority: "Urgent",
+        isSelected: true,
+        isDone: false,
+        tags: [tagsPossibles[0]],
+        description: "Entrées : huitres, saumon fumé, foie gras\nPlat : dinde aux marrons\nDessert : bûche de Noël",
+      },
+    ];
 
   // State for tasks and the task currently being edited
   const [tasks, setTasks] = React.useState<Task[]>(initialTasks);
@@ -114,12 +111,30 @@ const TaskView: React.FC<TaskViewProps> = ({ view }) => {
     });
   };
 
+  const onTagChange = (taskId: number, newTags: Tag[]) => {
+      setTasks((prevTasks) =>
+          prevTasks.map((task) => {
+          if (task.id === taskId) {
+              task.tags = newTags;
+              setTaskBeingEdited(task)
+          }
+          return task;
+          }),
+      );
+    };
+
+  const onTagsPossibleChange = (newTagPossible: Tag) => {
+      setTagsPossibles([...tagsPossibles, newTagPossible]);
+      console.log("helloooooo")
+      console.log(tagsPossibles);
+  };
+
+
   // Render the component based on the selected view
   const renderView = () => {
     switch (view) {
       case "Tasks List":
         return <TaskListView
-            tagsPossibles={tagsPossibles}
             tasks={tasks}
             taskBeingEdited={taskBeingEdited}
             addValue={addValue}
@@ -129,7 +144,11 @@ const TaskView: React.FC<TaskViewProps> = ({ view }) => {
             onDeadlineChange={onDeadlineChange}
             onPriorityChange={onPriorityChange}
             onDescriptionChange={onDescriptionChange}
-        />;
+            onTagsChange={onTagChange}
+            description={taskBeingEdited ? taskBeingEdited.description : ""}
+            tagsPossible={tagsPossibles}
+            onTagsPossibleChange={onTagsPossibleChange}
+            />;
       case "Labels Board":
         return <LabelsBoardView tagsPossibles={tagsPossibles} tasks={tasks}></LabelsBoardView>;
       default:
