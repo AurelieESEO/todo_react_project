@@ -5,6 +5,7 @@ type Task = {
   title: string;
   deadline: string;
   priority: string;
+  status: string;
   isSelected: boolean;
   tags : Tag[];
   description : string;

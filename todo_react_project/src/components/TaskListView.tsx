@@ -15,6 +15,7 @@ type TaskListViewProps = {
   onTitleChange: (taskId: number, newTitle: string) => void;
   onDeadlineChange: (taskId: number, newDeadline: string) => void;
   onPriorityChange: (taskId: number, newDeadline: string) => void;
+    onStatusChange: (taskId: number, newStatus: string) => void;
   onDescriptionChange: (taskId: number, newDescription: string) => void;
   onTagsPossibleChange: (newTagPossible: Tag) => void;
   onTagChange: (taskId: number, newTags: Tag[]) => void;
@@ -24,7 +25,7 @@ type TaskListViewProps = {
 const TaskListView: React.FC<TaskListViewProps> = (
     { tagsPossibles, tasks, taskBeingEdited, addValue,
       handleTaskClick, onIsDoneChange, onTitleChange, onDeadlineChange,
-      onPriorityChange, onDescriptionChange, onTagsPossibleChange, onTagChange}) => {
+      onPriorityChange, onStatusChange, onDescriptionChange, onTagsPossibleChange, onTagChange}) => {
 
   // TSX for the TaskListView component
   return (
@@ -55,6 +56,7 @@ const TaskListView: React.FC<TaskListViewProps> = (
             onTitleChange={onTitleChange}
             onDeadlineChange={onDeadlineChange}
             onPriorityChange={onPriorityChange}
+            onStatusChange={onStatusChange}
             onDescriptionChange={onDescriptionChange}
             tagsPossible={tagsPossibles}
             onTagsPossibleChange={onTagsPossibleChange}
