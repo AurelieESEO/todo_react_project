@@ -144,9 +144,8 @@ const TaskView: React.FC<TaskViewProps> = ({ view }) => {
             onDeadlineChange={onDeadlineChange}
             onPriorityChange={onPriorityChange}
             onDescriptionChange={onDescriptionChange}
-            onTagsChange={onTagChange}
-            description={taskBeingEdited ? taskBeingEdited.description : ""}
-            tagsPossible={tagsPossibles}
+            onTagChange={onTagChange}
+            tagsPossibles={tagsPossibles}
             onTagsPossibleChange={onTagsPossibleChange}
             />;
       case "Labels Board":

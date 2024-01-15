@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React, {useEffect} from 'react';
 import Task from '../model/Task.tsx';
 import Tag from '../model/Tag.tsx';
 
@@ -9,14 +9,10 @@ type TaskEditProps = {
   onDeadlineChange: (taskId: number, newDeadline: string) => void;
   onPriorityChange: (taskId: number, newDeadline: string) => void;
   onDescriptionChange: (taskId: number, newDescription: string) => void;
-  onTagsChange: (taskId: number, newTags: Tag[]) => void;
-  description: string;
   tagsPossible: Tag[];
+  onTagsChange: (taskId: number, newTags: Tag[]) => void;
   onTagsPossibleChange: (newTagPossible: Tag) => void;
 };
-
-// List of available priorities
-const prioritiesAvailable = ['Urgent', 'Moyen', 'Faible'];
 
 // Handler function for input changes (title, deadline, priority, description)
 const handleInputChange = (
@@ -26,7 +22,7 @@ const handleInputChange = (
     task: Task | null,
     onChangeFunction: (taskId: number, value: string) => void
 ) => {
-  const { value } = event.target;
+  const {value} = event.target;
   // Update the local state for the edited task
   setEditedTask((prevTask) => ({
     ...prevTask,
@@ -56,72 +52,69 @@ const TaskEdit: React.FC<TaskEditProps> = ({
   const [editedTask, setEditedTask] = React.useState<Task>(task!);
   const prioritiesAvailable = ['Urgent', 'Moyen', 'Faible'];
   const [allTagsVisible, setAllTagsVisible] = React.useState(false);
-                                       
 
   // Update the local state when the task prop changes
   useEffect(() => {
     setEditedTask(task!);
   }, [task]);
-
-
   const handleTagRemoving = (tagText: string) => {
     const newTags = task!.tags.filter((tag) => tag.text !== tagText);
     setEditedTask((prevTask) => ({
-        ...prevTask,
-        tags: newTags,
-        }));
+      ...prevTask,
+      tags: newTags,
+    }));
 
     if (task) {
       onTagsChange(task.id, newTags);
     }
   }
 
-    const handleInputChangeTagVisible = () => {
-        setAllTagsVisible(!allTagsVisible);
-    }
+  const handleInputChangeTagVisible = () => {
+    setAllTagsVisible(!allTagsVisible);
+  }
 
-    const handleTagAdding = (tagText: string) => {
+  const handleTagAdding = (tagText: string) => {
+    let notInTheList = true;
+    task!.tags.map((tag) => {
+      if (tag.text === tagText) {
+        notInTheList = false;
+      }
+    })
+    if (notInTheList) {
+      const newTag = tagsPossible.filter((tag) => tag.text === tagText);
+      setEditedTask((prevTask) => ({
+        ...prevTask,
+        tags: [...prevTask.tags, ...newTag],
+      }));
+      if (task) {
+        onTagsChange(task.id, [...task.tags, ...newTag]);
+      }
+    }
+  }
+
+  const handleNewTag = (event: React.ChangeEvent<HTMLInputElement>) => {
+    const {value} = event.target;
+    if (value != '') {
       let notInTheList = true;
-      task!.tags.map((tag) => {
-            if (tag.text === tagText) {
-                notInTheList = false;
-            }
+      tagsPossible.map((tag) => {
+        if (tag.text === value) {
+          notInTheList = false;
+        }
       })
       if (notInTheList) {
-        const newTag = tagsPossible.filter((tag) => tag.text === tagText);
+        const newTag: Tag[] = [{text: value, color: "#000000"}];
         setEditedTask((prevTask) => ({
-            ...prevTask,
-            tags: [...prevTask.tags, ...newTag],
+          ...prevTask,
+          tags: [...prevTask.tags, ...newTag],
         }));
+        onTagsPossibleChange(newTag[0]);
         if (task) {
           onTagsChange(task.id, [...task.tags, ...newTag]);
         }
       }
     }
 
-    const handleNewTag = (event: React.ChangeEvent<HTMLInputElement>) => {
-        const { value } = event.target;
-        if(value != '') {
-          let notInTheList = true;
-          tagsPossible.map((tag) => {
-            if (tag.text === value) {
-              notInTheList = false;
-            }
-          })
-            if (notInTheList) {
-              const newTag: Tag[] = [{text: value, color: "#000000"}];
-              setEditedTask((prevTask) => ({
-                ...prevTask,
-                tags: [...prevTask.tags, ...newTag],
-              }));
-              onTagsPossibleChange(newTag[0]);
-              if (task) {
-                onTagsChange(task.id, [...task.tags, ...newTag]);
-              }
-            }
-        }
-
-    }
+  }
 
   // TSX for the TaskEdit component
   return (
@@ -170,25 +163,32 @@ const TaskEdit: React.FC<TaskEditProps> = ({
             <p>Tags</p>
             <div className={'flex flex-row'}>
               {task!.tags.map((tag) => (
-                  <button className={'btn btn-secondary btn-sm mr-2'} onClick={() => handleTagRemoving(tag.text)}>
+                  <button className={'btn btn-secondary btn-sm mr-2'}
+                          onClick={() => handleTagRemoving(tag.text)}>
                     {tag.text}
-                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
+                    <svg xmlns="http://www.w3.org/2000/svg" fill="none"
+                         viewBox="0 0 24 24" stroke-width="1.5"
                          stroke="currentColor" className="w-6 h-6">
-                      <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12"/>
+                      <path stroke-linecap="round" stroke-linejoin="round"
+                            d="M6 18L18 6M6 6l12 12"/>
                     </svg>
                   </button>
               ))}
               <button className={"btn btn-circle btn-primary btn-sm"}
                       onClick={handleInputChangeTagVisible}>
                 {allTagsVisible ?
-                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
+                    <svg xmlns="http://www.w3.org/2000/svg" fill="none"
+                         viewBox="0 0 24 24" stroke-width="1.5"
                          stroke="currentColor" className="w-6 h-6">
-                      <path stroke-linecap="round" stroke-linejoin="round" d="m4.5 15.75 7.5-7.5 7.5 7.5"/>
+                      <path stroke-linecap="round" stroke-linejoin="round"
+                            d="m4.5 15.75 7.5-7.5 7.5 7.5"/>
                     </svg>
                     :
-                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
+                    <svg xmlns="http://www.w3.org/2000/svg" fill="none"
+                         viewBox="0 0 24 24" stroke-width="1.5"
                          stroke="currentColor" className="w-6 h-6">
-                      <path stroke-linecap="round" stroke-linejoin="round" d="M12 4.5v15m7.5-7.5h-15"/>
+                      <path stroke-linecap="round" stroke-linejoin="round"
+                            d="M12 4.5v15m7.5-7.5h-15"/>
                     </svg>}
               </button>
             </div>
@@ -196,7 +196,8 @@ const TaskEdit: React.FC<TaskEditProps> = ({
           <div className={`${allTagsVisible ? '' : 'hidden'}`}>
             <div className={'flex flex-row'}>
               {tagsPossible.map((tag) => (
-                  <button className={'btn btn-accent btn-sm mr-2'} onClick={() => handleTagAdding(tag.text)}>
+                  <button className={'btn btn-accent btn-sm mr-2'}
+                          onClick={() => handleTagAdding(tag.text)}>
                     {tag.text}
                   </button>
               ))}
