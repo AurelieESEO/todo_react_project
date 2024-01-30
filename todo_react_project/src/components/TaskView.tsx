@@ -28,7 +28,7 @@ const TaskView: React.FC<TaskViewProps> = ({ view }) => {
         status: "Not Started",
         isSelected: true,
         isDone: false,
-        tags: [tagsPossibles[0]],
+        tags: [tagsPossibles[0], tagsPossibles[1]],
         description: "Entrées : huitres, saumon fumé, foie gras\nPlat : dinde aux marrons\nDessert : bûche de Noël",
       },
     ];
