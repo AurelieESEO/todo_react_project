@@ -147,7 +147,7 @@ const TaskEdit: React.FC<TaskEditProps> = ({
             />
           </div>
           {/* Dropdown for task priority */}
-          <div className="flex flex-column">
+          <div className="flex flex-column items-center">
             <p>Priority</p>
             <select
                 className="select select-bordered w-full max-w-xs"
@@ -163,7 +163,7 @@ const TaskEdit: React.FC<TaskEditProps> = ({
             </select>
           </div>
           {/* Dropdown for task status */}
-          <div className="flex flex-column">
+          <div className="flex flex-column items-center">
             <p>Status</p>
             <select
                 className="select select-bordered w-full max-w-xs"

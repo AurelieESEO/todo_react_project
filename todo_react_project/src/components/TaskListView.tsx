@@ -101,8 +101,8 @@ const TaskListView: React.FC<TaskListViewProps> = (
   // TSX for the TaskListView component
   return (
       <div className="px-4 py-8 flex flex-row gap-4 justify-start w-full h-full">
-        <div className="w-3/6 flex flex-col justify-between">
-            <button className={'btn btn-secondary btn-sm mr-2'}
+        <div className="w-3/6 flex flex-col justify-start">
+            <button className={'btn btn-secondary btn-sm mr-2 mb-4'}
                     onClick={() => handleFiltersDisplayed()}>
                 <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
                      stroke="currentColor" className="w-6 h-6">
@@ -110,10 +110,10 @@ const TaskListView: React.FC<TaskListViewProps> = (
                           d="M10.5 6h9.75M10.5 6a1.5 1.5 0 1 1-3 0m3 0a1.5 1.5 0 1 0-3 0M3.75 6H7.5m3 12h9.75m-9.75 0a1.5 1.5 0 0 1-3 0m3 0a1.5 1.5 0 0 0-3 0m-3.75 0H7.5m9-6h3.75m-3.75 0a1.5 1.5 0 0 1-3 0m3 0a1.5 1.5 0 0 0-3 0m-9.75 0h9.75"/>
                 </svg>
             </button>
-            <div className={`${filtersDisplayed ? 'hidden' : ''}`}>
+            <div className={`${filtersDisplayed ? 'hidden' : ''} mb-8`}>
                 <p>Priority</p>
                 <select
-                    className="select select-bordered w-full max-w-xs"
+                    className="select select-bordered w-full h-6 mt-2 text-sm"
                     onChange={(event: React.ChangeEvent<never>) =>
                         handleInputChange(event, 'priority')
                     }
@@ -125,7 +125,7 @@ const TaskListView: React.FC<TaskListViewProps> = (
                 </select>
                 <p>Status</p>
                 <select
-                    className="select select-bordered w-full max-w-xs"
+		                className="select select-bordered w-full h-fit mt-2 text-xm"
                     onChange={(event: React.ChangeEvent<never>) =>
                         handleInputChange(event, 'status')
                     }
@@ -137,7 +137,7 @@ const TaskListView: React.FC<TaskListViewProps> = (
                 </select>
                 <p>Tag</p>
                 <select
-                    className="select select-bordered w-full max-w-xs"
+                    className="select select-bordered w-full h-6 mt-2 text-sm"
                     onChange={(event: React.ChangeEvent<never>) =>
                         handleInputChange(event, 'tag')
                     }
