@@ -60,6 +60,8 @@ const TaskEdit: React.FC<TaskEditProps> = ({
   useEffect(() => {
     setEditedTask(task!);
   }, [task]);
+
+	// Handler function for tag removing
   const handleTagRemoving = (tagText: string) => {
     const newTags = task!.tags.filter((tag) => tag.text !== tagText);
     setEditedTask((prevTask) => ({
@@ -72,6 +74,7 @@ const TaskEdit: React.FC<TaskEditProps> = ({
     }
   }
 
+	// Handler function for tag adding
   const handleInputChangeTagVisible = () => {
     setAllTagsVisible(!allTagsVisible);
   }

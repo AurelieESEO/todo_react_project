@@ -1,6 +1,7 @@
 import React from "react";
 import Task from "../model/Task.tsx";
 
+// Define the props for the TaskItem component
 type TaskItemProps = {
   task: Task;
   onClick?: () => void;
@@ -10,6 +11,7 @@ type TaskItemProps = {
   onDragStart?: (taskId: number) => void;
 };
 
+// TaskItem component for a single task
 const TaskItem: React.FC<TaskItemProps> = ({
                                              task,
                                              onClick,
@@ -18,7 +20,9 @@ const TaskItem: React.FC<TaskItemProps> = ({
                                              onDragDrop,
                                               onDragStart
                                            }) => {
-  const handleBackgroundColor = () => {
+
+	// Handler function for the background color
+	const handleBackgroundColor = () => {
     if (isInStatusBoard) {
       switch (task.status) {
         case "Not Started":
@@ -43,6 +47,8 @@ const TaskItem: React.FC<TaskItemProps> = ({
     }
   };
 
+	// Handler functions for the drag and drop
+	// Handler function for the drag start event
   const handleOnDragStart = (event: React.DragEvent<HTMLDivElement>) => {
     event.dataTransfer.setData('text/plain', task.id.toString());
     if (onDragStart) {
@@ -50,16 +56,19 @@ const TaskItem: React.FC<TaskItemProps> = ({
     }
   };
 
+	// Handler function for the drag over event
   const handleOnDragOver = (event: React.DragEvent<HTMLDivElement>) => {
     event.preventDefault();
   };
 
+	// Handler function for the drop event
   const handleOnDrop = () => {
     if (onDragDrop) {
       onDragDrop(task.id);
     }
   };
 
+	// Handler function for the isDone button
   const handleIsDonePressed = () => {
     if (onIsDoneChange) {
       onIsDoneChange(task.id);
@@ -78,7 +87,7 @@ const TaskItem: React.FC<TaskItemProps> = ({
             onDragOver={handleOnDragOver}
             onDrop={handleOnDrop}
             draggable={isInStatusBoard}
-            style={{ userSelect: 'none' }}  // Ajout de la propriété user-select
+            style={{ userSelect: 'none' }}
 
         >
           <div className="flex flex-row flex-start items-center">

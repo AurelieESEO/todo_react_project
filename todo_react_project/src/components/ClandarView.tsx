@@ -1,8 +1,6 @@
 import React from "react";
 
 const CalendarView: React.FC = () => {
-  //const tagsPossibles = ["Cuisine", "Ménage", "Travail", "Famille",
-  // "Finances"];
 
   return (
       <div className="flex flex-col w-full lg:flex-row">

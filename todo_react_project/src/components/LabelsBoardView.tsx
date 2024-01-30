@@ -8,6 +8,7 @@ type LabelsBoardViewProps = {
   tasks: Task[];
 };
 
+// Kanban board component
 const LabelsBoardView: React.FC<LabelsBoardViewProps> = ({tasks }) => {
   const [draggedTaskId, setDraggedTaskId] = useState<number | null>(null);
 

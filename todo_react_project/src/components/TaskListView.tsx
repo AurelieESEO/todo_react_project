@@ -28,20 +28,24 @@ const TaskListView: React.FC<TaskListViewProps> = (
       handleTaskClick, onIsDoneChange, onTitleChange, onDeadlineChange,
       onPriorityChange, onStatusChange, onDescriptionChange, onTagsPossibleChange, onTagChange}) => {
 
+		// Local state to hold the filters
     const initialFilter: Filter[] = []
 
     const [filters, setFilters] = React.useState<Filter[]>(initialFilter);
     const [filtersDisplayed, setFiltersDisplayed] = React.useState(false);
 
+		// Define the available priorities and status
     const prioritiesAvailable = ['Urgent', 'High', 'Medium', 'Low'];
     const statusAvailable = ['Not Started', 'In Progress', 'In Waiting', 'Done'];
 
+		// Handler function for the filter changes
     const onFilterChange = (newFilters: Filter[]) => {
         console.log("Hiiiiii")
         console.log(newFilters)
         setFilters(newFilters);
     };
 
+		// Handler function to check if a task should be displayed
     const isTaskDisplayed = (task: Task) => {
         let isDisplayed = true;
         filters.forEach(filter => {
@@ -72,6 +76,7 @@ const TaskListView: React.FC<TaskListViewProps> = (
         }
     }
 
+		// Handler function for the input changes
     const handleInputChange = (
         event: React.ChangeEvent<HTMLInputElement>,
         propertyName: string
@@ -93,6 +98,7 @@ const TaskListView: React.FC<TaskListViewProps> = (
 
     };
 
+		// Handler function for the filters display
     const handleFiltersDisplayed = () => {
         setFiltersDisplayed(!filtersDisplayed);
     }

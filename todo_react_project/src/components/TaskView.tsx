@@ -11,14 +11,16 @@ type TaskViewProps = {
 };
 
 const TaskView: React.FC<TaskViewProps> = ({ view }) => {
-
+		// Initial list of tags
     const initialTagsPossibles: Tag[] = [
     {text: "Cuisine", color: "#F87171"},
     {text: "Famille", color: "#FBBF24"},
     ]
 
+	// List of tasks
   const [tagsPossibles, setTagsPossibles] = React.useState<Tag[]>(initialTagsPossibles);
 
+	// List of tasks
   const initialTasks: Task[] = [
       {
         id: 1,
@@ -89,36 +91,42 @@ const TaskView: React.FC<TaskViewProps> = ({ view }) => {
     });
   };
 
+	// Handler function for the deadline change
   const onDeadlineChange = (taskId: number, newDeadline: string) => {
     updateTaskProperty(taskId, (task) => {
       task.deadline = newDeadline;
     });
   };
 
+	// Handler function for the priority change
   const onPriorityChange = (taskId: number, newPriority: string) => {
     updateTaskProperty(taskId, (task) => {
       task.priority = newPriority;
     });
   };
 
+	// Handler function for the status change
   const onStatusChange = (taskId: number, newStatus: string) => {
     updateTaskProperty(taskId, (task) => {
       task.status = newStatus;
     });
   }
 
+	// Handler function for the description change
   const onDescriptionChange = (taskId: number, newDescription: string) => {
     updateTaskProperty(taskId, (task) => {
       task.description = newDescription;
     });
   };
 
+	// Handler function for the isDone change
   const onIsDoneChange = (taskId: number) => {
     updateTaskProperty(taskId, (task) => {
       task.isDone = !task.isDone;
     });
   };
 
+	// Handler function for the tag change
   const onTagChange = (taskId: number, newTags: Tag[]) => {
       setTasks((prevTasks) =>
           prevTasks.map((task) => {
@@ -131,6 +139,7 @@ const TaskView: React.FC<TaskViewProps> = ({ view }) => {
       );
     };
 
+	// Handler function for the tag possible change
   const onTagsPossibleChange = (newTagPossible: Tag) => {
       setTagsPossibles([...tagsPossibles, newTagPossible]);
       console.log("helloooooo")
