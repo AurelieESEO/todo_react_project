@@ -69,10 +69,6 @@ const Sidebar: React.FC<SideBarProps> = ({ setView, view }) => {
 									/>
 							))}
 						</ul>
-						<div className="p-4 pt-2 flex justify-between items-center">
-							{short ? null : <span className="text-sm font-semibold">Toggle Theme</span>}
-							<input type="checkbox" value="synthwave" className="toggle controller-theme" />
-						</div>
 					</div>
 				</nav>
 			</aside>

@@ -222,7 +222,11 @@ const TaskEdit: React.FC<TaskEditProps> = ({
               ))}
             </div>
             <div>
-              <input onBlur={handleNewTag}></input>
+              <input className="input input-bordered card-title w-full max-w-xs max-h-6 mt-2 text-sm"
+                     type="text"
+                     onBlur={handleNewTag}
+                     placeholder="New Tag Name"
+              ></input>
             </div>
           </div>
           {/* Textarea for task description */}
