@@ -37,6 +37,8 @@ const TaskListView: React.FC<TaskListViewProps> = (
     const statusAvailable = ['Not Started', 'In Progress', 'In Waiting', 'Done'];
 
     const onFilterChange = (newFilters: Filter[]) => {
+        console.log("Hiiiiii")
+        console.log(newFilters)
         setFilters(newFilters);
     };
 
@@ -77,11 +79,20 @@ const TaskListView: React.FC<TaskListViewProps> = (
         const {value} = event.target;
         if(value === "None") {
             onFilterChange(filters.filter(filter => filter.property !== propertyName));
+            console.log("None")
+            console.log(filters)
             return;
         }
         else {
             const newFilter : Filter = {property: propertyName, value: value};
-            setFilters([filters, newFilter]);
+            let newFilters = filters;
+            if(filters.map(filter => filter.property).includes(propertyName)) {
+                console.log("Hello I'm here")
+                newFilters = filters.filter(filter => filter.property !== propertyName);
+            }
+            newFilters = [...newFilters, newFilter];
+            onFilterChange(newFilters);
+            console.log(filters)
         }
 
     };
